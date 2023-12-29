@@ -1,0 +1,40 @@
+name: markab
+description: "A new Flutter project."
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.2 <4.0.0'
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  flutter_screenutil: ^5.9.0
+  mask_text_input_formatter: ^2.7.0
+  pinput: ^3.0.1
+  flutter_svg: ^2.0.9
+  equatable: ^2.0.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/icons/
+    - assets/images/
+
+  fonts:
+    - family: ProximaNova
+      fonts:
+         - asset: assets/fonts/Proxima Nova/proximanova_regular.ttf
+         - asset: assets/fonts/Proxima Nova/proximanova_light.otf
+           weight: 300
+         - asset: assets/fonts/Proxima Nova/proximanova_extrabold.otf
+           weight: 800
+         - asset: assets/fonts/Proxima Nova/proximanova_bold.otf
+           weight: 700
