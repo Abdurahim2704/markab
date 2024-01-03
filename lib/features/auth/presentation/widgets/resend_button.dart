@@ -21,6 +21,5 @@ class ResendButton extends StatelessWidget {
             height: 0.07,
           ),
         ));
-    ;
   }
 }

@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:markab/config/core/constants/colors.dart';
 import 'package:markab/config/core/routes/route.dart';
-import 'package:markab/features/auth/presentation/pages/car_register_page.dart';
 import 'package:markab/features/auth/presentation/widgets/next_button.dart';
 import 'package:markab/features/auth/presentation/widgets/version_text.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
