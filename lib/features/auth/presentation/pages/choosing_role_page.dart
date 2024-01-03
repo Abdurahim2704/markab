@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:markab/config/core/constants/colors.dart';
 import 'package:markab/config/core/constants/icons.dart';
 import 'package:markab/features/auth/presentation/widgets/next_button.dart';
+import 'package:markab/features/auth/presentation/widgets/version_text.dart';
 import 'package:markab/features/auth/presentation/widgets/yes_no_button.dart';
 
 class ChoosingRolePage extends StatefulWidget {
@@ -173,7 +174,10 @@ class _ChoosingRolePageState extends State<ChoosingRolePage> {
                     SizedBox(
                       height: 16.h,
                     ),
-                    const NextButton(text: "Keyingi"),
+                    NextButton(
+                      text: "Keyingi",
+                      onPressed: () {},
+                    ),
                   ],
                 ),
               )
@@ -181,18 +185,7 @@ class _ChoosingRolePageState extends State<ChoosingRolePage> {
           ),
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.symmetric(vertical: 30.h),
-        child: Text(
-          'Versiya v1.0.0',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: CustomColors.cA0A0A0,
-            fontSize: 12.sp,
-            fontWeight: FontWeight.w400,
-          ),
-        ),
-      ),
+      bottomNavigationBar: const VersionText(),
     );
   }
 }

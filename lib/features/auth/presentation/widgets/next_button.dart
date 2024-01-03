@@ -5,12 +5,13 @@ import '../../../../config/core/constants/colors.dart';
 
 class NextButton extends StatelessWidget {
   final String text;
-  const NextButton({super.key, required this.text});
+  final void Function() onPressed;
+  const NextButton({super.key, required this.text, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      onPressed: () {},
+      onPressed: onPressed,
       color: CustomColors.primaryBlueColor,
       padding: EdgeInsets.symmetric(vertical: 9.h),
       shape: RoundedRectangleBorder(

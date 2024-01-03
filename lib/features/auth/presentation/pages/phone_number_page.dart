@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:markab/config/core/constants/colors.dart';
+import 'package:markab/config/core/routes/route.dart';
+import 'package:markab/features/auth/presentation/pages/car_register_page.dart';
 import 'package:markab/features/auth/presentation/widgets/next_button.dart';
+import 'package:markab/features/auth/presentation/widgets/version_text.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class PhoneNumberPage extends StatefulWidget {
@@ -16,6 +20,8 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
     mask: ' ## ###-##-##',
     filter: {"#": RegExp(r'[0-9]')},
   );
+  var phoneNumber = "";
+  final controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -51,12 +57,20 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
                 height: 18.h,
               ),
               TextField(
+                controller: controller,
                 inputFormatters: [maskTextInputFormatter],
                 textAlignVertical: TextAlignVertical.bottom,
                 keyboardType: TextInputType.number,
                 scrollPadding: EdgeInsets.zero,
                 autofocus: true,
                 autocorrect: false,
+                onSubmitted: (value) {
+                  print(value.length);
+                  if (value.length == 13) {
+                    phoneNumber = value.split(" ").join().split("-").join();
+                    print(phoneNumber);
+                  }
+                },
                 style: TextStyle(
                     color: CustomColors.black,
                     fontSize: 16.sp,
@@ -90,23 +104,20 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
               SizedBox(
                 height: 18.h,
               ),
-              NextButton(text: "Keyingi")
+              NextButton(
+                text: "Keyingi",
+                onPressed: () {
+                  if (phoneNumber.isNotEmpty && mounted) {
+                    context.goNamed(Routes.otpPage,
+                        pathParameters: {"phone_number": phoneNumber});
+                  }
+                },
+              )
             ],
           ),
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.symmetric(vertical: 30.h),
-        child: Text(
-          'Versiya v1.0.0',
-          textAlign: TextAlign.center,
-          style: TextStyle(
-            color: CustomColors.cA0A0A0,
-            fontSize: 12.sp,
-            fontWeight: FontWeight.w400,
-          ),
-        ),
-      ),
+      bottomNavigationBar: const VersionText(),
     );
   }
 }
