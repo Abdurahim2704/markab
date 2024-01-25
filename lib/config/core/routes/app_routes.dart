@@ -10,20 +10,13 @@ class AppRouter {
         name: Routes.phoneNumberPage,
         path: "/",
         pageBuilder: (context, state) {
-          return MaterialPage(child: PhoneNumberPage());
+          return const MaterialPage(child: PhoneNumberPage());
         },
       ),
       GoRoute(
         name: Routes.otpPage,
         path: "/otp_page/:phone_number",
-        builder: (context, state) {
-          print("salom");
-          return OTPPage(
-            phoneNumber: state.pathParameters["phone_number"]!,
-          );
-        },
         pageBuilder: (context, state) {
-          print("hello");
           return MaterialPage(
               child: OTPPage(
             phoneNumber: state.pathParameters["phone_number"]!,
@@ -34,19 +27,17 @@ class AppRouter {
         name: Routes.carRegisterPage,
         path: "/car_register_page",
         pageBuilder: (context, state) {
-          return MaterialPage(child: CarRegisterPage());
+          return const MaterialPage(child: CarRegisterPage());
         },
       ),
       GoRoute(
         name: Routes.choosingRolePage,
         path: "/choosing_role_page",
         pageBuilder: (context, state) {
-          return MaterialPage(child: ChoosingRolePage());
+          return const MaterialPage(child: ChoosingRolePage());
         },
       ),
+
     ],
-    errorPageBuilder: (context, state) {
-      return MaterialPage(child: CarRegisterPage());
-    },
   );
 }

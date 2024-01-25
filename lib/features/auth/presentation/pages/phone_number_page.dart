@@ -17,7 +17,9 @@ class PhoneNumberPage extends StatefulWidget {
 class _PhoneNumberPageState extends State<PhoneNumberPage> {
   var maskTextInputFormatter = MaskTextInputFormatter(
     mask: ' ## ###-##-##',
-    filter: {"#": RegExp(r'[0-9]')},
+    filter: {
+      "#": RegExp(r'[0-9]'),
+    },
   );
   var phoneNumber = "";
   final controller = TextEditingController();
@@ -64,7 +66,6 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
                 autofocus: true,
                 autocorrect: false,
                 onSubmitted: (value) {
-                  print(value.length);
                   if (value.length == 13) {
                     phoneNumber = value.split(" ").join().split("-").join();
                     print(phoneNumber);

@@ -14,7 +14,9 @@ class UserEntity extends Equatable {
       required this.carNumber});
 
   @override
-  List<Object?> get props => [id];
+  List<Object?> get props => [
+        id,
+      ];
 }
 
 enum Role {

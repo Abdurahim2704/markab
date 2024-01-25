@@ -3,7 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:markab/features/auth/presentation/pages/car_register_page.dart';
+import 'package:go_router/go_router.dart';
+import 'package:markab/config/core/routes/route.dart';
 import 'package:markab/features/auth/presentation/widgets/next_button.dart';
 import 'package:markab/features/auth/presentation/widgets/resend_button.dart';
 import 'package:markab/features/auth/presentation/widgets/version_text.dart';
@@ -43,11 +44,7 @@ class _OTPPageState extends State<OTPPage> {
 
   void verificationSuccess(BuildContext context, AuthState state) {
     if (state is VerificationSuccess && mounted) {
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => CarRegisterPage(),
-          ));
+      context.goNamed(Routes.choosingRolePage);
     }
   }
 

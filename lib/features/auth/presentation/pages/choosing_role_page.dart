@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:markab/config/core/constants/colors.dart';
 import 'package:markab/config/core/constants/icons.dart';
+import 'package:markab/config/core/routes/route.dart';
 import 'package:markab/features/auth/presentation/widgets/next_button.dart';
 import 'package:markab/features/auth/presentation/widgets/version_text.dart';
 import 'package:markab/features/auth/presentation/widgets/yes_no_button.dart';
@@ -176,7 +178,9 @@ class _ChoosingRolePageState extends State<ChoosingRolePage> {
                     ),
                     NextButton(
                       text: "Keyingi",
-                      onPressed: () {},
+                      onPressed: () {
+                        context.goNamed(Routes.carRegisterPage);
+                      },
                     ),
                   ],
                 ),

@@ -12,4 +12,12 @@ sealed class AppTheme {
       textTheme: TextTheme(),
       colorScheme:
           ColorScheme.fromSeed(seedColor: CustomColors.primaryBlueColor));
+
+  static const scaffoldGradient = LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [
+        CustomColors.gradientColor1,
+        CustomColors.gradientColor2,
+      ]);
 }
