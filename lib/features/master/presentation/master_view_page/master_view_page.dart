@@ -65,10 +65,8 @@ class _MasterViewPageState extends State<MasterViewPage> {
       ),
       body: SizedBox.expand(
         child: Container(
-          decoration: BoxDecoration(
-            gradient: AppTheme.scaffoldGradient
-          ),
-          child: ,
+          decoration: BoxDecoration(gradient: AppTheme.scaffoldGradient),
+          child: Column(),
         ),
       ),
     );
