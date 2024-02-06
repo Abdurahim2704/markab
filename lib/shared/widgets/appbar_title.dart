@@ -10,7 +10,7 @@ class AppBarTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      'Kartalar',
+      text,
       textAlign: TextAlign.center,
       style: TextStyle(
         color: CustomColors.titleBlue,

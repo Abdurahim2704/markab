@@ -65,12 +65,6 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
                 scrollPadding: EdgeInsets.zero,
                 autofocus: true,
                 autocorrect: false,
-                onSubmitted: (value) {
-                  if (value.length == 13) {
-                    phoneNumber = value.split(" ").join().split("-").join();
-                    print(phoneNumber);
-                  }
-                },
                 style: TextStyle(
                     color: CustomColors.black,
                     fontSize: 16.sp,
@@ -107,6 +101,11 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
               NextButton(
                 text: "Keyingi",
                 onPressed: () {
+                  if (controller.text.length == 13) {
+                    phoneNumber =
+                        controller.text.split(" ").join().split("-").join();
+                    print(phoneNumber);
+                  }
                   if (phoneNumber.isNotEmpty && mounted) {
                     context.goNamed(Routes.otpPage,
                         pathParameters: {"phone_number": phoneNumber});
