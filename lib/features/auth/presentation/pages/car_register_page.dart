@@ -40,6 +40,7 @@ class _CarRegisterPageState extends State<CarRegisterPage> {
               SizedBox(
                 height: 16.h,
               ),
+
               Stack(alignment: AlignmentDirectional(-0.5, 0),
                 children: [
                   Container(
