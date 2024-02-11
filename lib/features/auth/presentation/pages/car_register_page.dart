@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:markab/config/core/constants/colors.dart';
+import 'package:markab/features/auth/presentation/pages/map_page.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class CarRegisterPage extends StatefulWidget {
@@ -11,12 +12,10 @@ class CarRegisterPage extends StatefulWidget {
 }
 
 class _CarRegisterPageState extends State<CarRegisterPage> {
-  final carNumberMask = MaskTextInputFormatter(mask: "@ ### @@", filter: {
+  final carNumberMask = MaskTextInputFormatter(mask: "##   @ ### @@ ", filter: {
     "@": RegExp(r"[a-zA-Z]"),
     "#": RegExp(r"[0-9]"),
   });
-
-  final node = FocusNode();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +24,7 @@ class _CarRegisterPageState extends State<CarRegisterPage> {
           padding: EdgeInsets.symmetric(horizontal: 14.w),
           child: Column(
             mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
@@ -41,92 +40,65 @@ class _CarRegisterPageState extends State<CarRegisterPage> {
               SizedBox(
                 height: 16.h,
               ),
-              Stack(
+              Stack(alignment: AlignmentDirectional(-0.5, 0),
                 children: [
-                  Align(
-                    alignment: FractionalOffset(0.07, 0.5),
-                    child: SizedBox(
-                      width: 50.w,
-                      child: TextField(
-                        focusNode: node,
-                        textAlignVertical: TextAlignVertical.bottom,
-                        cursorHeight: 40,
-                        style: TextStyle(
-                          color: CustomColors.black,
+                  Container(
+                    margin: EdgeInsets.zero,
+                  padding: EdgeInsets.symmetric(horizontal: 15),
+                    width: 240.w,
+                    height: 50.w,
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                            color: CustomColors.textfieldBorder, width: 3)),
+                    child: TextField(
+
+                      textAlignVertical: TextAlignVertical.center,
+                      // cursorHeight: 40,
+                      style: TextStyle(
+                        color: CustomColors.black,
+                        fontSize: 30.sp,
+                        fontFamily: 'Proxima Nova',
+                        fontWeight: FontWeight.w400,
+                        height: 1,
+                      ),
+                      inputFormatters: [
+                        carNumberMask,
+                      ],
+                      decoration: InputDecoration(
+                        // enabledBorder: OutlineInputBorder(
+                        //   borderSide: BorderSide(
+                        //       color: CustomColors.textfieldBorder,
+                        //       width: 3.h),
+                        // ),
+                        border: InputBorder.none,
+                        hintText: '01  A 111 AA',
+                        hintStyle: TextStyle(
+                          color: CustomColors.grey,
                           fontSize: 30.sp,
                           fontFamily: 'Proxima Nova',
                           fontWeight: FontWeight.w400,
-                          height: 0.03,
+                          // height: 1,
                         ),
-                        inputFormatters: [
-                          carNumberMask,
-                        ],
-                        decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: CustomColors.textfieldBorder,
-                                width: 3.h),
-                          ),
-                          hintText: '01',
-                          hintStyle: TextStyle(
-                            color: CustomColors.grey,
-                            fontSize: 30.sp,
-                            fontFamily: 'Proxima Nova',
-                            fontWeight: FontWeight.w400,
-                            height: 0.03,
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: CustomColors.primaryBlueColor,
-                                width: 3.h),
-                          ),
-                        ),
+                        // focusedBorder: OutlineInputBorder(
+                        //   borderSide: BorderSide(
+                        //       color: CustomColors.primaryBlueColor,
+                        //       width: 3.h),
+                        // ),
                       ),
+
                     ),
                   ),
-                  Align(
-                    alignment: FractionalOffset(0.945, 0.5),
-                    child: SizedBox(
-                      width: 200.w,
-                      child: TextField(
-                        focusNode: node,
-                        textAlignVertical: TextAlignVertical.bottom,
-                        cursorHeight: 40,
-                        style: TextStyle(
-                          color: CustomColors.black,
-                          fontSize: 30.sp,
-                          fontFamily: 'Proxima Nova',
-                          fontWeight: FontWeight.w400,
-                          height: 0.03,
-                        ),
-                        inputFormatters: [
-                          carNumberMask,
-                        ],
-                        decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: CustomColors.textfieldBorder,
-                                width: 3.h),
-                          ),
-                          hintText: 'A 111 AA',
-                          hintStyle: TextStyle(
-                            color: CustomColors.grey,
-                            fontSize: 30.sp,
-                            fontFamily: 'Proxima Nova',
-                            fontWeight: FontWeight.w400,
-                            height: 0.03,
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: CustomColors.primaryBlueColor,
-                                width: 3.h),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  SizedBox(
+                    height: 50.w,
+                    width: 3,
+                    child: ColoredBox(color: CustomColors.textfieldBorder),
+                  )
                 ],
-              )
+              ),
+              SizedBox(height: 50,),
+              ElevatedButton(onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => MapPage(),));
+              }, child: Icon(Icons.arrow_forward_ios))
             ],
           ),
         ),

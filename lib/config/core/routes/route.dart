@@ -3,4 +3,5 @@ sealed class Routes {
   static const choosingRolePage = "choosing_role_page";
   static const otpPage = "otp_page";
   static const phoneNumberPage = "phone_number_page";
+  static const mapPage = "map_page";
 }
