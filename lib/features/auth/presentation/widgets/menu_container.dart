@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 
 class MenuContainer extends StatelessWidget {
-  const MenuContainer({super.key});
+  final TextEditingController? controller;
+  const MenuContainer({super.key, this.controller});
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +21,7 @@ decoration: BoxDecoration(
         children: [
           Padding(padding: EdgeInsets.all(15),
           child: TextField(
+            controller: controller,
             style: TextStyle(color: CupertinoColors.white),
             decoration: InputDecoration(
               border: OutlineInputBorder(

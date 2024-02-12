@@ -1,10 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:markab/features/auth/data/services/map_services/yandex_map_service.dart';
+import 'package:markab/features/auth/presentation/bloc/location/location_bloc.dart';
 import 'package:markab/features/auth/presentation/widgets/menu_container.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
-
 
 class MapPage extends StatefulWidget {
   const MapPage({super.key});
@@ -15,6 +16,7 @@ class MapPage extends StatefulWidget {
 
 class _MapPageState extends State<MapPage> {
   final mapControllerCompleter = Completer<YandexMapController>();
+  TextEditingController controller = TextEditingController();
 
   @override
   void initState() {
@@ -39,10 +41,45 @@ class _MapPageState extends State<MapPage> {
             },
             onMapTap: (point) {
               addMark(point: point);
+              BlocProvider.of<LocationBloc>(context).add(GetLocationEvent(
+                  appLatLong: AppLatLong(
+                    lat: point.latitude,
+                    long: point.longitude,
+                  )));
+
+
             },
           ),
-          Align(alignment: Alignment(0, 0.8),
-              child: MenuContainer()),
+          BlocConsumer<LocationBloc, LocationState>(
+            listener: (context, state) {
+              if (state is LocationSuccess) {
+                controller.text = state
+                    .model
+                    .response
+                    .geoObjectCollection
+                    .featureMember[0]
+                    .geoObject
+                    .metaDataProperty
+                    .geocoderMetaData
+                    .text;
+
+              }
+              if(state is LocationError){
+                controller.text = state.errorText;
+              }
+              setState(() {
+
+              });
+
+            },
+            builder: (context, state) {
+              return Align(
+                  alignment: Alignment(0, 0.8),
+                  child: MenuContainer(
+                    controller: controller,
+                  ));
+            },
+          ),
         ],
       ),
     );
@@ -61,18 +98,14 @@ class _MapPageState extends State<MapPage> {
     try {
       location = await LocationService().getCurrentLocation();
       currentLocation = location;
-      print("Oxshavattiyu okala");
     } catch (_) {
       location = defLocation;
-      print("----------------------");
     }
     addObjects(appLatLong: location);
     _moveToCurrentLocation(location);
   }
 
-  Future<void> _moveToCurrentLocation(
-      AppLatLong appLatLong,
-      ) async {
+  Future<void> _moveToCurrentLocation(AppLatLong appLatLong,) async {
     (await mapControllerCompleter.future).moveCamera(
       animation: MapAnimation(type: MapAnimationType.smooth, duration: 2),
       CameraUpdate.newCameraPosition(
@@ -98,21 +131,26 @@ class _MapPageState extends State<MapPage> {
           image: BitmapDescriptor.fromAssetImage("assets/images/img.png"),
           rotationType: RotationType.rotate,
         )));
-    final currentLocationCircle = CircleMapObject(mapId: MapObjectId("currentLocationCircle"), circle:
-    Circle(center: Point(latitude: appLatLong.lat, longitude: appLatLong.long), radius: 150),
+    final currentLocationCircle = CircleMapObject(
+        mapId: MapObjectId("currentLocationCircle"),
+        circle: Circle(
+            center: Point(latitude: appLatLong.lat, longitude: appLatLong.long),
+            radius: 150),
         strokeWidth: 0,
         fillColor: Colors.yellow.withOpacity(0.2));
     mapObject.addAll([myLocationMarker, currentLocationCircle]);
     setState(() {});
   }
-  void addMark({required Point point}){
-    final markLocation = PlacemarkMapObject(mapId: MapObjectId("markId"), point: point,
+
+  void addMark({required Point point}) {
+    final markLocation = PlacemarkMapObject(
+        mapId: MapObjectId("markId"),
+        point: point,
         icon: PlacemarkIcon.single(PlacemarkIconStyle(
           image: BitmapDescriptor.fromAssetImage("assets/images/img.png"),
           rotationType: RotationType.rotate,
         )));
     mapObject.add(markLocation);
-    setState(() {
-    });
+    setState(() {});
   }
 }
