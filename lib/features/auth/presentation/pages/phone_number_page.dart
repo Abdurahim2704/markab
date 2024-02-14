@@ -38,7 +38,7 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
               Text(
                 "Ro’yhatdan o'ting",
                 style: TextStyle(
-                  color: CustomColors.black,
+                  color: CustomColors.oxFF1E1E1E,
                   fontSize: 25.sp,
                   fontWeight: FontWeight.w700,
                 ),
@@ -50,7 +50,7 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
                 'Telefon raqamingizni kiriting',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: CustomColors.black,
+                  color: CustomColors.oxFF1E1E1E,
                   fontSize: 14.sp,
                 ),
               ),
@@ -66,27 +66,27 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
                 autofocus: true,
                 autocorrect: false,
                 style: TextStyle(
-                    color: CustomColors.black,
+                    color: CustomColors.oxFF1E1E1E,
                     fontSize: 16.sp,
                     fontWeight: FontWeight.w400,
                     height: 0.1),
                 decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
                       borderSide: const BorderSide(
-                        color: CustomColors.textfieldBorder,
+                        color: CustomColors.oxFFB2D3FF,
                       ),
                       borderRadius: BorderRadius.circular(4),
                     ),
                     border: OutlineInputBorder(
                       borderSide: const BorderSide(
-                        color: CustomColors.textfieldBorder,
+                        color: CustomColors.oxFFB2D3FF,
                       ),
                       borderRadius: BorderRadius.circular(4),
                     ),
                     prefix: Text(
                       '+998',
                       style: TextStyle(
-                          color: CustomColors.black,
+                          color: CustomColors.oxFF1E1E1E,
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w400,
                           height: 0.1),

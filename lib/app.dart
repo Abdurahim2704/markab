@@ -20,9 +20,10 @@ class MarkabApp extends StatelessWidget {
         BlocProvider(
           create: (context) => CardBloc()
             ..add(const GetCardEvent(
-                name: "name",
-                expireDate: "expireDate",
-                cardNumber: "cardNumber")),
+              name: "name",
+              expireDate: "expireDate",
+              cardNumber: "cardNumber",
+            )),
         ),
       ],
       child: ScreenUtilInit(

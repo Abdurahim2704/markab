@@ -52,7 +52,7 @@ class _CarRegisterPageState extends State<CarRegisterPage> {
                         textAlignVertical: TextAlignVertical.bottom,
                         cursorHeight: 40,
                         style: TextStyle(
-                          color: CustomColors.black,
+                          color: CustomColors.oxFF1E1E1E,
                           fontSize: 30.sp,
                           fontFamily: 'Proxima Nova',
                           fontWeight: FontWeight.w400,
@@ -64,7 +64,7 @@ class _CarRegisterPageState extends State<CarRegisterPage> {
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                                color: CustomColors.textfieldBorder,
+                                color: CustomColors.oxFFB2D3FF,
                                 width: 3.h),
                           ),
                           hintText: '01',
@@ -93,7 +93,7 @@ class _CarRegisterPageState extends State<CarRegisterPage> {
                         textAlignVertical: TextAlignVertical.bottom,
                         cursorHeight: 40,
                         style: TextStyle(
-                          color: CustomColors.black,
+                          color: CustomColors.oxFF1E1E1E,
                           fontSize: 30.sp,
                           fontFamily: 'Proxima Nova',
                           fontWeight: FontWeight.w400,
@@ -105,7 +105,7 @@ class _CarRegisterPageState extends State<CarRegisterPage> {
                         decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                                color: CustomColors.textfieldBorder,
+                                color: CustomColors.oxFFB2D3FF,
                                 width: 3.h),
                           ),
                           hintText: 'A 111 AA',

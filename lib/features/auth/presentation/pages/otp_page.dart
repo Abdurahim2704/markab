@@ -85,7 +85,7 @@ class _OTPPageState extends State<OTPPage> {
                     '$minute:$second',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: CustomColors.cA0A0A0,
+                      color: CustomColors.oxFFCA0A0A0,
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w400,
                       height: 0.07,
@@ -119,7 +119,7 @@ class _OTPPageState extends State<OTPPage> {
                   Text(
                     "SMS kodni kiriting",
                     style: TextStyle(
-                      color: CustomColors.black,
+                      color: CustomColors.oxFF1E1E1E,
                       fontSize: 25.sp,
                       fontWeight: FontWeight.w700,
                     ),
@@ -137,7 +137,7 @@ class _OTPPageState extends State<OTPPage> {
                         height: 1.5,
                         margin: const EdgeInsets.only(bottom: 12),
                         decoration: BoxDecoration(
-                          color: CustomColors.black,
+                          color: CustomColors.oxFF1E1E1E,
                           borderRadius: BorderRadius.circular(8),
                         ),
                       ),
@@ -148,13 +148,13 @@ class _OTPPageState extends State<OTPPage> {
                       width: 45.w,
                       height: 40.h,
                       textStyle: TextStyle(
-                        color: CustomColors.black,
+                        color: CustomColors.oxFF1E1E1E,
                         fontSize: 16.sp,
                         fontWeight: FontWeight.w400,
                         height: 0.06,
                       ),
                       decoration: BoxDecoration(
-                        border: Border.all(color: CustomColors.textfieldBorder),
+                        border: Border.all(color: CustomColors.oxFFB2D3FF),
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),

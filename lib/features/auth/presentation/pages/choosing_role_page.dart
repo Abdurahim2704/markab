@@ -46,7 +46,7 @@ class _ChoosingRolePageState extends State<ChoosingRolePage> {
                         'Haydovchi',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: CustomColors.black,
+                          color: CustomColors.oxFF1E1E1E,
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w400,
                           height: 0.06,
@@ -84,7 +84,7 @@ class _ChoosingRolePageState extends State<ChoosingRolePage> {
                         'Usta',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: CustomColors.black,
+                          color: CustomColors.oxFF1E1E1E,
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w400,
                           height: 0.06,
@@ -117,7 +117,7 @@ class _ChoosingRolePageState extends State<ChoosingRolePage> {
                 'Mashinangiz bormi ?',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: CustomColors.black,
+                  color: CustomColors.oxFF1E1E1E,
                   fontSize: 16.sp,
                   fontWeight: FontWeight.w400,
                   height: 0.06,
@@ -139,7 +139,7 @@ class _ChoosingRolePageState extends State<ChoosingRolePage> {
                         'Ha',
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: CustomColors.black,
+                          color: CustomColors.oxFF1E1E1E,
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w400,
                           height: 0.06,
