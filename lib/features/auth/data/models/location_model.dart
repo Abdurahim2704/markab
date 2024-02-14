@@ -1,4 +1,3 @@
-import 'package:meta/meta.dart';
 import 'dart:convert';
 
 class LocationModel {
@@ -378,7 +377,7 @@ class SubAdministrativeArea {
 }
 
 class Point {
-  String pos;
+  String? pos;
 
   Point({
     required this.pos,
@@ -388,8 +387,8 @@ class Point {
 
   String toRawJson() => json.encode(toJson());
 
-  factory Point.fromJson(Map<String, dynamic> json) => Point(
-    pos: json["pos"],
+  factory Point.fromJson(Map<String, dynamic>? json) => Point(
+    pos: json?["pos"],
   );
 
   Map<String, dynamic> toJson() => {
@@ -418,7 +417,7 @@ class GeoObjectCollectionMetaDataProperty {
 }
 
 class GeocoderResponseMetaData {
-  Point point;
+  Point? point;
   String request;
   String results;
   String found;
@@ -442,7 +441,7 @@ class GeocoderResponseMetaData {
   );
 
   Map<String, dynamic> toJson() => {
-    "Point": point.toJson(),
+    "Point": point?.toJson(),
     "request": request,
     "results": results,
     "found": found,

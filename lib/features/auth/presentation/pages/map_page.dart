@@ -20,21 +20,64 @@ class _MapPageState extends State<MapPage> {
 
   @override
   void initState() {
+    mapObject=[  PlacemarkMapObject(
+        consumeTapEvents: true,
+        onTap: (mapObject, point) {
+         modalBottomSheet(context, "Bekzoda akaning dokoni");
+        },
+        text: PlacemarkText(text: "Bekzod aka", style: PlacemarkTextStyle()),
+
+        mapId: const MapObjectId("Bekzod aka"),
+        point: const Point(latitude: 42.1, longitude: 69.3),
+        icon: PlacemarkIcon.single(PlacemarkIconStyle(
+          scale: 2,
+          image: BitmapDescriptor.fromAssetImage("assets/images/ic_locate.png"),
+          rotationType: RotationType.rotate,
+        ))),
+      PlacemarkMapObject(
+          consumeTapEvents: true,
+          onTap: (mapObject, point) {
+            modalBottomSheet(context, "Bekzoda tog'aning dokoni");
+          },
+          text: PlacemarkText(text: "Bekzod toga", style: PlacemarkTextStyle()),
+          mapId: const MapObjectId("Bekzod toga"),
+          point: const Point(latitude: 42.5, longitude: 69.7),
+          icon: PlacemarkIcon.single(PlacemarkIconStyle(
+            scale: 2,
+            image: BitmapDescriptor.fromAssetImage("assets/images/ic_locate.png"),
+            rotationType: RotationType.rotate,
+          ))),
+      PlacemarkMapObject(
+          consumeTapEvents: true,
+          onTap: (mapObject, point) {
+            modalBottomSheet(context, "Bekzod jiyanning dokoni");
+          },
+          text: PlacemarkText(text: "Bekzod jiyan", style: PlacemarkTextStyle()),
+
+          mapId: const MapObjectId("Bekzod jiyan"),
+          point: const Point(latitude: 41.9, longitude: 68.9),
+          icon: PlacemarkIcon.single(PlacemarkIconStyle(
+            scale: 2,
+            image: BitmapDescriptor.fromAssetImage("assets/images/ic_locate.png"),
+            rotationType: RotationType.rotate,
+          )))];
     super.initState();
     _initPermission().ignore();
   }
 
-  List<MapObject> mapObject = [];
+  List<MapObject> mapObject = [
+
+  ];
   AppLatLong? currentLocation;
 
   @override
   Widget build(BuildContext context) {
-    addObjects(appLatLong: currentLocation ?? TashkentLocation());
+    addObjects(appLatLong: currentLocation ?? const TashkentLocation());
     return Scaffold(
       body: Stack(
         children: [
           YandexMap(
-            nightModeEnabled: true,
+            nightModeEnabled: false,
             mapObjects: mapObject,
             onMapCreated: (controller) {
               mapControllerCompleter.complete(controller);
@@ -43,17 +86,15 @@ class _MapPageState extends State<MapPage> {
               addMark(point: point);
               BlocProvider.of<LocationBloc>(context).add(GetLocationEvent(
                   appLatLong: AppLatLong(
-                    lat: point.latitude,
-                    long: point.longitude,
-                  )));
-
-
+                lat: point.latitude,
+                long: point.longitude,
+              )));
             },
           ),
           BlocConsumer<LocationBloc, LocationState>(
             listener: (context, state) {
               if (state is LocationSuccess) {
-                controller.text = state
+                modalBottomSheet(context,  state
                     .model
                     .response
                     .geoObjectCollection
@@ -61,28 +102,68 @@ class _MapPageState extends State<MapPage> {
                     .geoObject
                     .metaDataProperty
                     .geocoderMetaData
-                    .text;
-
+                    .text);
               }
-              if(state is LocationError){
+              if (state is LocationError) {
                 controller.text = state.errorText;
               }
-              setState(() {
-
-              });
-
+              setState(() {});
             },
             builder: (context, state) {
-              return Align(
-                  alignment: Alignment(0, 0.8),
-                  child: MenuContainer(
-                    controller: controller,
-                  ));
+              return Center(
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    MenuContainer(
+                      function: () {
+                        if (state is LocationSuccess) {
+                          String pos = state
+                                  .model
+                                  .response
+                                  .geoObjectCollection
+                                  .metaDataProperty
+                                  .geocoderResponseMetaData
+                                  .point
+                                  ?.pos ??
+                              "42 69";
+                          addMark(
+                              point: Point(
+                                  latitude:
+                                      double.tryParse(pos.split(" ")[1]) ?? 42,
+                                  longitude:
+                                      double.tryParse(pos.split(" ")[0]) ??
+                                          69));
+                        }
+                      },
+                      controller: controller,
+                    ),
+                    const Spacer(),
+                  ],
+                ),
+              );
             },
           ),
         ],
       ),
     );
+  }
+
+  Future<dynamic> modalBottomSheet(BuildContext context,String text) {
+    return showModalBottomSheet(context: context, builder: (context) {
+                return Container(
+                  height: 300,
+                  width: double.infinity,
+                  color: Colors.white,
+                  padding: EdgeInsets.all(20),
+                  child: Text(text
+                     , style: TextStyle(
+                    color: Colors.blue, fontSize: 18
+                  ),
+                  ),
+                );
+              },);
   }
 
   Future<void> _initPermission() async {
@@ -105,9 +186,11 @@ class _MapPageState extends State<MapPage> {
     _moveToCurrentLocation(location);
   }
 
-  Future<void> _moveToCurrentLocation(AppLatLong appLatLong,) async {
+  Future<void> _moveToCurrentLocation(
+    AppLatLong appLatLong,
+  ) async {
     (await mapControllerCompleter.future).moveCamera(
-      animation: MapAnimation(type: MapAnimationType.smooth, duration: 2),
+      animation: const MapAnimation(type: MapAnimationType.smooth, duration: 2),
       CameraUpdate.newCameraPosition(
         CameraPosition(
           target: Point(
@@ -122,17 +205,18 @@ class _MapPageState extends State<MapPage> {
 
   void addObjects({required AppLatLong appLatLong}) {
     final myLocationMarker = PlacemarkMapObject(
-        mapId: MapObjectId("currentLocationMark"),
+        mapId: const MapObjectId("currentLocationMark"),
         point: Point(
           latitude: appLatLong.lat,
           longitude: appLatLong.long,
         ),
         icon: PlacemarkIcon.single(PlacemarkIconStyle(
-          image: BitmapDescriptor.fromAssetImage("assets/images/img.png"),
+          image:
+              BitmapDescriptor.fromAssetImage("assets/images/ic_current.png"),
           rotationType: RotationType.rotate,
         )));
     final currentLocationCircle = CircleMapObject(
-        mapId: MapObjectId("currentLocationCircle"),
+        mapId: const MapObjectId("currentLocationCircle"),
         circle: Circle(
             center: Point(latitude: appLatLong.lat, longitude: appLatLong.long),
             radius: 150),
@@ -144,12 +228,20 @@ class _MapPageState extends State<MapPage> {
 
   void addMark({required Point point}) {
     final markLocation = PlacemarkMapObject(
-        mapId: MapObjectId("markId"),
-        point: point,
-        icon: PlacemarkIcon.single(PlacemarkIconStyle(
-          image: BitmapDescriptor.fromAssetImage("assets/images/img.png"),
-          rotationType: RotationType.rotate,
-        )));
+      mapId: const MapObjectId("markId"),
+      point: point,
+      icon: PlacemarkIcon.single(
+        PlacemarkIconStyle(
+            image: BitmapDescriptor.fromAssetImage(
+              "assets/images/ic_navigate.png",
+            ),
+            rotationType: RotationType.rotate,
+            scale: 2,
+            tappableArea: MapRect(
+                min: Offset(point.latitude, point.longitude),
+                max: Offset.zero)),
+      ),
+    );
     mapObject.add(markLocation);
     setState(() {});
   }

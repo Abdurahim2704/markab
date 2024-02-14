@@ -7,3 +7,9 @@ class GetLocationEvent extends LocationEvent{
 final AppLatLong appLatLong;
 GetLocationEvent({required this.appLatLong});
 }
+
+
+class GetLocationByAddressEvent extends LocationEvent{
+  final String address;
+  GetLocationByAddressEvent({required this.address});
+}
