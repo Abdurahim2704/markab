@@ -44,14 +44,14 @@ class MasterCard extends StatelessWidget {
                             for (int i = 0; i < 4; i++)
                               Icon(
                                 Icons.star,
-                                color: CustomColors.starYellow,
+                                color: Color(0xFFFFE925),
                                 size: 12.sp,
                               ),
                             for (int i = 0; i < 1; i++)
                               Icon(
                                 Icons.star,
                                 size: 12.sp,
-                                color: CustomColors.starNeutral,
+                                color: Color(0xFFE5F0FF),
                               )
                           ]
                         ],
@@ -61,7 +61,7 @@ class MasterCard extends StatelessWidget {
                       master.name,
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        color: CustomColors.masterNameColor,
+                        color: CustomColors.oxFF4B4B4B,
                         fontSize: 12.sp,
                       ),
                     ),
@@ -89,7 +89,7 @@ class MasterCard extends StatelessWidget {
           Text(
             master.about,
             style: TextStyle(
-              color: Color(0xFFA0A0A0),
+              color: const Color(0xFFA0A0A0),
               fontSize: 10.sp,
               overflow: TextOverflow.ellipsis,
               fontWeight: FontWeight.w300,

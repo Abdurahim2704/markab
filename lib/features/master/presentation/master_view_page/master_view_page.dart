@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:markab/config/core/constants/colors.dart';
 import 'package:markab/config/core/constants/icons.dart';
 import 'package:markab/shared/widgets/appbar_title.dart';
@@ -31,10 +32,13 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => CardBloc()
-            ..add(const GetCardEvent(
+            ..add(
+              const GetCardEvent(
                 name: "name",
                 expireDate: "expireDate",
-                cardNumber: "cardNumber")),
+                cardNumber: "cardNumber",
+              ),
+            ),
         ),
       ],
       child: ScreenUtilInit(
@@ -71,23 +75,24 @@ class _MasterViewPageState extends State<MasterViewPage> {
           padding: EdgeInsets.symmetric(horizontal: 15.w),
           child: Column(
             children: [
-              SizedBox(
-                height: 20.h,
-              ),
+              SizedBox(height: 20.h),
               TextField(
                 style: TextStyle(
-                    fontSize: 10.sp,
-                    color: Colors.black,
-                    fontWeight: FontWeight.w500),
+                  fontSize: 10.sp,
+                  color: Colors.black,
+                  fontWeight: FontWeight.w500,
+                ),
                 decoration: InputDecoration(
                   enabledBorder: const OutlineInputBorder(
-                    borderSide: BorderSide(color: Color(0xFFF0F0F0), width: 1),
+                    borderSide:
+                        BorderSide(color: CustomColors.oxFFF0F0F0, width: 1),
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
                   border: const OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      borderSide:
-                          BorderSide(color: Color(0xFFF0F0F0), width: 1)),
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    borderSide:
+                        BorderSide(color: CustomColors.oxFFF0F0F0, width: 1),
+                  ),
                   focusColor: Colors.transparent,
                   suffixIcon: IconButton(
                     onPressed: () {},
@@ -96,17 +101,22 @@ class _MasterViewPageState extends State<MasterViewPage> {
                       height: 15.sp,
                       width: 15.sp,
                       margin: EdgeInsets.symmetric(
-                          horizontal: 7.sp, vertical: 7.sp),
-                      child: Image.asset(
+                        horizontal: 7.sp,
+                        vertical: 7.sp,
+                      ),
+                      child: SvgPicture.asset(
                         CustomIcons.filterIcon,
-                        fit: BoxFit.fill,
+                        height: 15.sp,
+                        width: 15.sp,
                       ),
                     ),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderSide:
                         BorderSide(color: const Color(0xFFF0F0F0), width: 1.sp),
-                    borderRadius: BorderRadius.all(Radius.circular(8.sp)),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(8.sp),
+                    ),
                   ),
                   hintText: "Qidirish",
                   hintStyle: TextStyle(
@@ -123,18 +133,19 @@ class _MasterViewPageState extends State<MasterViewPage> {
                       height: 12.sp,
                       width: 12.sp,
                       margin: EdgeInsets.symmetric(
-                          horizontal: 7.sp, vertical: 7.sp),
+                        horizontal: 7.sp,
+                        vertical: 7.sp,
+                      ),
                       child: Image.asset(
                         CustomIcons.searchIcon,
-                        fit: BoxFit.fill,
+                        height: 15.sp,
+                        width: 15.sp,
                       ),
                     ),
                   ),
                 ),
               ),
-              SizedBox(
-                height: 16.h,
-              ),
+              SizedBox(height: 16.h),
               ListView.builder(
                 shrinkWrap: true,
                 itemCount: 1,
@@ -142,8 +153,9 @@ class _MasterViewPageState extends State<MasterViewPage> {
                   return Container(
                     padding: EdgeInsets.all(12.sp),
                     decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(4.sp))),
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(4.sp)),
+                    ),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.end,
@@ -152,13 +164,14 @@ class _MasterViewPageState extends State<MasterViewPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             CircleAvatar(
-                              minRadius: 30,
-                              child: Image.network(
-                                  "https://via.placeholder.com/44x44"),
+                              radius: 24.sp,
+                              child: const Image(
+                                image: AssetImage(
+                                  "assets/images/img_master_muslim.png",
+                                ),
+                              ),
                             ),
-                            SizedBox(
-                              width: 8.w,
-                            ),
+                            SizedBox(width: 10.sp),
                             //#name and adress
                             Flexible(
                               child: Column(
@@ -174,14 +187,14 @@ class _MasterViewPageState extends State<MasterViewPage> {
                                           for (int i = 0; i < 4; i++)
                                             Icon(
                                               Icons.star,
-                                              color: CustomColors.starYellow,
+                                              color: CustomColors.oxFFFFE925,
                                               size: 12.sp,
                                             ),
                                           for (int i = 0; i < 1; i++)
                                             Icon(
                                               Icons.star,
                                               size: 12.sp,
-                                              color: CustomColors.starNeutral,
+                                              color: CustomColors.oxFFE5F0FF,
                                             )
                                         ]
                                       ],
@@ -191,13 +204,11 @@ class _MasterViewPageState extends State<MasterViewPage> {
                                     'Muslim Sobirov',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-                                      color: CustomColors.masterNameColor,
+                                      color: CustomColors.oxFF4B4B4B,
                                       fontSize: 12.sp,
                                     ),
                                   ),
-                                  SizedBox(
-                                    height: 4.h,
-                                  ),
+                                  SizedBox(height: 5.h),
                                   Text(
                                     'Mirzo Ulug’bek, Toshkent sh.',
                                     textAlign: TextAlign.center,
@@ -219,7 +230,7 @@ class _MasterViewPageState extends State<MasterViewPage> {
                         Text(
                           'MATOR buzuldimi hech ikkilanmasadan bizga olib kelavering, qo’li gul ustalarimiz hammasini zo’r qilib . berishadi',
                           style: TextStyle(
-                            color: Color(0xFFA0A0A0),
+                            color: CustomColors.oxFFA0A0A0,
                             fontSize: 10.sp,
                             overflow: TextOverflow.ellipsis,
                             fontWeight: FontWeight.w300,
@@ -227,9 +238,7 @@ class _MasterViewPageState extends State<MasterViewPage> {
                           ),
                           maxLines: 2,
                         ),
-                        SizedBox(
-                          height: 12.h,
-                        ),
+                        SizedBox(height: 12.sp),
                         Align(
                           alignment: Alignment.topLeft,
                           child: Wrap(
@@ -240,24 +249,28 @@ class _MasterViewPageState extends State<MasterViewPage> {
                                 for (int i = 0; i < 7; i++)
                                   Container(
                                     padding: EdgeInsets.symmetric(
-                                        horizontal: 5.w, vertical: 2.h),
-                                    decoration: ShapeDecoration(
-                                      color: const Color(0xFFE5F0FF),
+                                      horizontal: 5.w,
+                                      vertical: 2.h,
+                                    ),
+                                    decoration: const ShapeDecoration(
+                                      color: CustomColors.oxFFE5F0FF,
                                       shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(4.sp)),
+                                        borderRadius: BorderRadius.all(
+                                          Radius.circular(5),
+                                        ),
+                                      ),
                                     ),
                                     child: Text(
                                       'Mator',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                        color: Color(0xFF366AD2),
+                                        color: CustomColors.oxFF366AD2,
                                         fontSize: 10.sp,
                                         fontWeight: FontWeight.w300,
                                       ),
                                     ),
                                   ),
-                              ]
+                              ],
                             ],
                           ),
                         )
@@ -265,7 +278,7 @@ class _MasterViewPageState extends State<MasterViewPage> {
                     ),
                   );
                 },
-              )
+              ),
             ],
           ),
         ),
