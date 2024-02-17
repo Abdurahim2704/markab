@@ -72,7 +72,7 @@ class _MasterViewPageState extends State<MasterViewPage> {
       body: SizedBox.expand(
         child: Container(
           decoration: const BoxDecoration(gradient: AppTheme.scaffoldGradient),
-          padding: EdgeInsets.symmetric(horizontal: 15.w),
+          padding: EdgeInsets.symmetric(horizontal: 12.w),
           child: Column(
             children: [
               SizedBox(height: 20.h),

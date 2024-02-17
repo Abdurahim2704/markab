@@ -14,7 +14,7 @@ class AppBarTitle extends StatelessWidget {
       textAlign: TextAlign.center,
       style: TextStyle(
         color: CustomColors.titleBlue,
-        fontSize: 18.sp,
+        fontSize: 17.sp,
         fontWeight: FontWeight.w700,
       ),
     );
