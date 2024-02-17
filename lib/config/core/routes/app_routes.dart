@@ -18,9 +18,10 @@ class AppRouter {
         path: "/otp_page/:phone_number",
         pageBuilder: (context, state) {
           return MaterialPage(
-              child: OTPPage(
-            phoneNumber: state.pathParameters["phone_number"]!,
-          ));
+            child: OTPPage(
+              phoneNumber: state.pathParameters["phone_number"]!,
+            ),
+          );
         },
       ),
       GoRoute(
@@ -37,7 +38,6 @@ class AppRouter {
           return const MaterialPage(child: ChoosingRolePage());
         },
       ),
-
     ],
   );
 }

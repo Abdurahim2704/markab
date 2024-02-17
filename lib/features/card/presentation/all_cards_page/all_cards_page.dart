@@ -32,10 +32,13 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => CardBloc()
-            ..add(const GetCardEvent(
+            ..add(
+              const GetCardEvent(
                 name: "name",
                 expireDate: "expireDate",
-                cardNumber: "cardNumber")),
+                cardNumber: "cardNumber",
+              ),
+            ),
         ),
       ],
       child: ScreenUtilInit(
@@ -43,7 +46,7 @@ class MyApp extends StatelessWidget {
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           theme: AppTheme.lightTheme,
-          home: AllCardsPage(),
+          home: const AllCardsPage(),
         ),
       ),
     );

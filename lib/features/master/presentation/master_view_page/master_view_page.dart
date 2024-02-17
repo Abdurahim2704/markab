@@ -29,10 +29,13 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => CardBloc()
-            ..add(const GetCardEvent(
+            ..add(
+              const GetCardEvent(
                 name: "name",
                 expireDate: "expireDate",
-                cardNumber: "cardNumber")),
+                cardNumber: "cardNumber",
+              ),
+            ),
         ),
       ],
       child: ScreenUtilInit(
@@ -59,14 +62,14 @@ class _MasterViewPageState extends State<MasterViewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: AppBarTitle(
+        title: const AppBarTitle(
           text: "Ustalar",
         ),
       ),
       body: SizedBox.expand(
         child: Container(
-          decoration: BoxDecoration(gradient: AppTheme.scaffoldGradient),
-          child: Column(),
+          decoration: const BoxDecoration(gradient: AppTheme.scaffoldGradient),
+          child: const Column(),
         ),
       ),
     );

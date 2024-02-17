@@ -6,7 +6,12 @@ import '../../../../config/core/constants/colors.dart';
 class NextButton extends StatelessWidget {
   final String text;
   final void Function() onPressed;
-  const NextButton({super.key, required this.text, required this.onPressed});
+
+  const NextButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {

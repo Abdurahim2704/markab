@@ -1,35 +1,11 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:markab/config/core/constants/colors.dart';
 import 'package:markab/config/theme/theme.dart';
-import 'package:markab/locator.dart';
-import 'package:markab/observer.dart';
-
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await setUp();
-  Bloc.observer = MyGlobalObserver();
-
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(294, 636),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: AppTheme.lightTheme,
-        home: const HomePage(),
-      ),
-    );
-  }
-}
+import 'package:markab/features/auth/presentation/pages/notification_page.dart';
+import 'package:markab/features/auth/presentation/pages/penalties_screen.dart';
+import 'package:markab/features/auth/presentation/pages/settings_page/settings_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -50,7 +26,7 @@ class HomePage extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  buildHomeAppBar(),
+                  buildHomeAppBar(context),
                   SizedBox(height: 25.sp),
 
                   /// #Home Header
@@ -70,18 +46,29 @@ class HomePage extends StatelessWidget {
                       buildHomeSections(
                         iconPath: "assets/icons/ic_car_document.svg",
                         text: "Xujjatlar",
+                        onTap: () {},
                       ),
                       buildHomeSections(
                         iconPath: "assets/icons/ic_document.svg",
                         text: "Hisobot",
+                        onTap: () {},
                       ),
                       buildHomeSections(
                         iconPath: "assets/icons/ic_penalty.svg",
                         text: "Jarima",
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const PenaltiesScreen(),
+                            ),
+                          );
+                        },
                       ),
                       buildHomeSections(
                         iconPath: "assets/icons/ic_navigator.svg",
                         text: "Navigator",
+                        onTap: () {},
                       ),
                     ],
                   ),
@@ -140,7 +127,7 @@ class HomePage extends StatelessWidget {
 
 Container buildHeaderIndicator() {
   return Container(
-    height: 18.sp,
+    height: 17.sp,
     width: 45.sp,
     decoration: BoxDecoration(
       color: CustomColors.oxFFFCFCFC,
@@ -160,11 +147,11 @@ Container buildHeaderIndicator() {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
         CircleAvatar(
-          radius: 5.sp,
+          radius: 4.5.sp,
           backgroundColor: CustomColors.oxFFFF346AD2,
         ),
         CircleAvatar(
-          radius: 5.sp,
+          radius: 4.5.sp,
           backgroundColor: CustomColors.oxFFB2D3FF,
         ),
       ],
@@ -432,7 +419,7 @@ class CarNumber extends StatelessWidget {
   }
 }
 
-Row buildHomeAppBar() {
+Row buildHomeAppBar(BuildContext context) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
@@ -443,7 +430,14 @@ Row buildHomeAppBar() {
           borderRadius: const BorderRadius.all(
             Radius.circular(20),
           ),
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const SettingsScreen(),
+              ),
+            );
+          },
           child: SvgPicture.asset(
             "assets/icons/ic_settings.svg",
             height: 20.sp,
@@ -472,7 +466,14 @@ Row buildHomeAppBar() {
             borderRadius: const BorderRadius.all(
               Radius.circular(20),
             ),
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const NotificationScreen(),
+                ),
+              );
+            },
             child: SvgPicture.asset(
               "assets/icons/ic_bell.svg",
               height: 28,
@@ -488,21 +489,25 @@ Row buildHomeAppBar() {
 Column buildHomeSections({
   required String iconPath,
   required String text,
+  required void Function()? onTap,
 }) {
   return Column(
     children: [
-      Container(
-        height: 40.sp,
-        width: 40.sp,
-        padding: EdgeInsets.all(8.sp),
-        decoration: BoxDecoration(
-          color: CustomColors.oxFFFFFFFF.withOpacity(0.6),
-          borderRadius: BorderRadius.all(
-            Radius.circular(6.r),
+      InkWell(
+        onTap: onTap,
+        child: Container(
+          height: 40.sp,
+          width: 40.sp,
+          padding: EdgeInsets.all(8.sp),
+          decoration: BoxDecoration(
+            color: CustomColors.oxFFFFFFFF.withOpacity(0.6),
+            borderRadius: BorderRadius.all(
+              Radius.circular(6.r),
+            ),
           ),
-        ),
-        child: SvgPicture.asset(
-          iconPath,
+          child: SvgPicture.asset(
+            iconPath,
+          ),
         ),
       ),
       const SizedBox(height: 6),

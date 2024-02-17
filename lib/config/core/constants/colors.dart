@@ -9,6 +9,7 @@ sealed class CustomColors {
   static const oxFF000000 = Color(0xFF000000);
   static const oxFFCA0A0A0 = Color(0xFFA0A0A0);
   static const oxFF4B4B4B = Color(0xFF4B4B4B);
+  static const oxFF53639A = Color(0xFF53639A);
   static const oxFFFCFCFC = Color(0xFFFCFCFC);
   static const oxFF4DB85E = Color(0xFF4DB85E);
   static const oxFFFFFFFF = Color(0xFFFFFFFF);

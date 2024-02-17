@@ -58,6 +58,7 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
                 height: 18.h,
               ),
               TextField(
+                cursorHeight: 25,
                 controller: controller,
                 inputFormatters: [maskTextInputFormatter],
                 textAlignVertical: TextAlignVertical.bottom,
@@ -66,10 +67,11 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
                 autofocus: true,
                 autocorrect: false,
                 style: TextStyle(
-                    color: CustomColors.oxFF1E1E1E,
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w400,
-                    height: 0.1),
+                  color: CustomColors.oxFF1E1E1E,
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w400,
+                  height: 1,
+                ),
                 decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
                       borderSide: const BorderSide(

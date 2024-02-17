@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:markab/config/core/constants/colors.dart';
+import 'package:markab/features/auth/presentation/pages/main_home_screen.dart';
+import 'package:markab/features/auth/presentation/widgets/next_button.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class CarRegisterPage extends StatefulWidget {
@@ -11,12 +13,12 @@ class CarRegisterPage extends StatefulWidget {
 }
 
 class _CarRegisterPageState extends State<CarRegisterPage> {
-  final carNumberMask = MaskTextInputFormatter(mask: "@ ### @@", filter: {
+  final carNumberMask = MaskTextInputFormatter(mask: "##   @ ### @@ ", filter: {
     "@": RegExp(r"[a-zA-Z]"),
     "#": RegExp(r"[0-9]"),
   });
+  TextEditingController carNumberController = TextEditingController();
 
-  final node = FocusNode();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +27,7 @@ class _CarRegisterPageState extends State<CarRegisterPage> {
           padding: EdgeInsets.symmetric(horizontal: 14.w),
           child: Column(
             mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
@@ -38,95 +40,94 @@ class _CarRegisterPageState extends State<CarRegisterPage> {
                   height: 0.07,
                 ),
               ),
-              SizedBox(
-                height: 16.h,
-              ),
+              SizedBox(height: 20.sp),
               Stack(
+                alignment: const AlignmentDirectional(-.55, 0),
                 children: [
-                  Align(
-                    alignment: FractionalOffset(0.07, 0.5),
-                    child: SizedBox(
-                      width: 50.w,
-                      child: TextField(
-                        focusNode: node,
-                        textAlignVertical: TextAlignVertical.bottom,
-                        cursorHeight: 40,
-                        style: TextStyle(
-                          color: CustomColors.oxFF1E1E1E,
-                          fontSize: 30.sp,
-                          fontFamily: 'Proxima Nova',
-                          fontWeight: FontWeight.w400,
-                          height: 0.03,
-                        ),
-                        inputFormatters: [
-                          carNumberMask,
-                        ],
-                        decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: CustomColors.oxFFB2D3FF,
-                                width: 3.h),
-                          ),
-                          hintText: '01',
-                          hintStyle: TextStyle(
-                            color: CustomColors.grey,
-                            fontSize: 30.sp,
-                            fontFamily: 'Proxima Nova',
-                            fontWeight: FontWeight.w400,
-                            height: 0.03,
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: CustomColors.primaryBlueColor,
-                                width: 3.h),
-                          ),
-                        ),
+                  Container(
+                    margin: EdgeInsets.zero,
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    width: 240.sp,
+                    height: 50.sp,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: CustomColors.oxFFB2D3FF,
+                        width: 3,
                       ),
                     ),
-                  ),
-                  Align(
-                    alignment: FractionalOffset(0.945, 0.5),
-                    child: SizedBox(
-                      width: 200.w,
-                      child: TextField(
-                        focusNode: node,
-                        textAlignVertical: TextAlignVertical.bottom,
-                        cursorHeight: 40,
-                        style: TextStyle(
-                          color: CustomColors.oxFF1E1E1E,
+                    child: TextField(
+                      controller: carNumberController,
+                      textAlignVertical: TextAlignVertical.center,
+                      style: TextStyle(
+                        color: CustomColors.oxFF000000,
+                        fontSize: 30.sp,
+                        fontFamily: 'Proxima Nova',
+                        fontWeight: FontWeight.w400,
+                        height: 1,
+                      ),
+                      inputFormatters: [
+                        carNumberMask,
+                      ],
+                      decoration: InputDecoration(
+                        border: InputBorder.none,
+                        hintText: '01  A 111 AA',
+                        hintStyle: TextStyle(
+                          color: CustomColors.grey,
                           fontSize: 30.sp,
                           fontFamily: 'Proxima Nova',
                           fontWeight: FontWeight.w400,
-                          height: 0.03,
                         ),
-                        inputFormatters: [
-                          carNumberMask,
-                        ],
-                        decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: CustomColors.oxFFB2D3FF,
-                                width: 3.h),
-                          ),
-                          hintText: 'A 111 AA',
-                          hintStyle: TextStyle(
-                            color: CustomColors.grey,
-                            fontSize: 30.sp,
-                            fontFamily: 'Proxima Nova',
-                            fontWeight: FontWeight.w400,
-                            height: 0.03,
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: CustomColors.primaryBlueColor,
-                                width: 3.h),
-                          ),
+                        suffixIcon: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image(
+                              image: const AssetImage(
+                                "assets/images/flag.png",
+                              ),
+                              height: 12.sp,
+                              width: 25.sp,
+                            ),
+                            SizedBox(height: 4.sp),
+                            Text(
+                              "UZ",
+                              style: TextStyle(
+                                fontSize: 15.sp,
+                                fontWeight: FontWeight.w400,
+                                fontFamily: "Proxima Nova",
+                                color: CustomColors.oxFF2F80ED,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
+                      onChanged: (value) {
+                        carNumberController.text =
+                            carNumberController.text.toUpperCase();
+                        setState(() {});
+                      },
+                    ),
+                  ),
+                  SizedBox(
+                    height: 50.sp,
+                    width: 3,
+                    child: const ColoredBox(
+                      color: CustomColors.oxFFB2D3FF,
                     ),
                   ),
                 ],
-              )
+              ),
+              SizedBox(height: 50.sp),
+              NextButton(
+                text: "Keyingi",
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const MainHomeScreen(),
+                    ),
+                  );
+                },
+              ),
             ],
           ),
         ),

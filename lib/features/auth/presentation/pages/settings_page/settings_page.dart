@@ -117,7 +117,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
         scrolledUnderElevation: 0,
         backgroundColor: CustomColors.scaffoldBackground,
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: SvgPicture.asset(
             "assets/icons/ic_arrow_back.svg",
             height: 16.sp,
