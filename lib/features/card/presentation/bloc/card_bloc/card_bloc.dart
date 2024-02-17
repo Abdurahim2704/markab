@@ -11,6 +11,7 @@ class CardBloc extends Bloc<CardEvent, CardState> {
   CardBloc() : super(const CardInitial(cards: [])) {
     on<GetCardEvent>(_getCardEvent);
     on<GetLocalCardEvent>(_getLocalCardEvent);
+    on<SaveCardEvent>(_saveCardEvent);
   }
 
   void _getCardEvent(GetCardEvent event, Emitter<CardState> emit) async {
@@ -33,6 +34,7 @@ class CardBloc extends Bloc<CardEvent, CardState> {
     final service = getIt<BankRepository>();
 
     final cardsString = await service.getCardsLocal();
+    print(cardsString);
     final List<CreditCard> cards = [];
 
     for (var item in cardsString) {
@@ -42,5 +44,14 @@ class CardBloc extends Bloc<CardEvent, CardState> {
     }
 
     emit(CardSuccess(cards: cards));
+  }
+
+  void _saveCardEvent(SaveCardEvent event, Emitter<CardState> emit) async {
+    final service = getIt<BankRepository>();
+
+    final result =
+        await service.saveCard(event.cardNumber, event.expireDate, event.name);
+    print(result);
+    emit(CardSaveSuccess(cards: state.cards));
   }
 }

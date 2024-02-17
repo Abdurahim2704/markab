@@ -20,8 +20,10 @@ class BankService extends BankRepository {
 
   @override
   Future<List<String>> getCardsLocal() async {
-    final String cards = ins.getString("cards") ?? "";
-    return cards.split(";").toList();
+    final List<String> cards =
+        (ins.getString("cards") ?? "").split(";").map((e) => e.trim()).toList();
+    cards.removeWhere((element) => element.isEmpty);
+    return cards;
   }
 
   @override
@@ -34,7 +36,10 @@ class BankService extends BankRepository {
       String cardNumber, String expireDate, String name) async {
     final String cards = ins.getString("cards") ?? "";
     final newCards = cards.split(";");
-    newCards.add("$cardNumber, $expireDate, $name");
-    return await ins.setString("cards", newCards.join(";"));
+    if (!newCards.contains("$cardNumber, $expireDate, $name")) {
+      newCards.add("$cardNumber, $expireDate, $name");
+      return await ins.setString("cards", newCards.join(";"));
+    }
+    return false;
   }
 }

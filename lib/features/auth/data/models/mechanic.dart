@@ -6,6 +6,11 @@ class Mechanic extends MechanicEntity {
     required super.userId,
     required super.location,
     required super.id,
+    required super.name,
+    required super.grade,
+    required super.about,
+    required super.address,
+    required super.image,
   });
 
   factory Mechanic.fromJson(Map<String, Object?> json) {
@@ -13,7 +18,20 @@ class Mechanic extends MechanicEntity {
     final location =
         Location.fromJson(json["location"] as Map<String, Object?>);
     final int id = json["id"] as int;
+    final String name = json["name"] as String;
+    final grade = json["grade"] as double;
+    final about = json["about"] as String;
+    final address = json["address"] as String;
+    final image = json["image"] as String?;
 
-    return Mechanic(userId: userId, location: location, id: id);
+    return Mechanic(
+        userId: userId,
+        location: location,
+        id: id,
+        name: name,
+        grade: grade,
+        about: about,
+        address: address,
+        image: image);
   }
 }

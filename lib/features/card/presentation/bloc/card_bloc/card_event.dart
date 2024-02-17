@@ -16,3 +16,15 @@ class GetCardEvent extends CardEvent {
 class GetLocalCardEvent extends CardEvent {
   const GetLocalCardEvent();
 }
+
+class SaveCardEvent extends CardEvent {
+  final String name;
+  final String cardNumber;
+  final String expireDate;
+
+  const SaveCardEvent({
+    required this.name,
+    required this.expireDate,
+    required this.cardNumber,
+  });
+}

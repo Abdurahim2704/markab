@@ -7,4 +7,5 @@ final getIt = GetIt.instance;
 Future<void> setUp() async {
   await authSetUp();
   getIt.registerSingleton<BankRepository>(BankService());
+  await getIt<BankRepository>().init();
 }

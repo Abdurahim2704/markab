@@ -32,13 +32,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => CardBloc()
-            ..add(
-              const GetCardEvent(
-                name: "name",
-                expireDate: "expireDate",
-                cardNumber: "cardNumber",
-              ),
-            ),
+            ..add(const SaveCardEvent(
+                name: "name", expireDate: "09/12", cardNumber: "fdghjkgadsk"))
+            ..add(const GetLocalCardEvent()),
         ),
       ],
       child: ScreenUtilInit(
