@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:markab/config/core/constants/colors.dart';
+import 'package:markab/config/core/constants/icons.dart';
 import 'package:markab/shared/widgets/appbar_title.dart';
 
 import '../../../../config/theme/theme.dart';
@@ -59,14 +61,213 @@ class _MasterViewPageState extends State<MasterViewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: AppBarTitle(
+        title: const AppBarTitle(
           text: "Ustalar",
         ),
       ),
       body: SizedBox.expand(
         child: Container(
-          decoration: BoxDecoration(gradient: AppTheme.scaffoldGradient),
-          child: Column(),
+          decoration: const BoxDecoration(gradient: AppTheme.scaffoldGradient),
+          padding: EdgeInsets.symmetric(horizontal: 15.w),
+          child: Column(
+            children: [
+              SizedBox(
+                height: 20.h,
+              ),
+              TextField(
+                style: TextStyle(
+                    fontSize: 10.sp,
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500),
+                decoration: InputDecoration(
+                  enabledBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Color(0xFFF0F0F0), width: 1),
+                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                  ),
+                  border: const OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      borderSide:
+                          BorderSide(color: Color(0xFFF0F0F0), width: 1)),
+                  focusColor: Colors.transparent,
+                  suffixIcon: IconButton(
+                    onPressed: () {},
+                    padding: EdgeInsets.zero,
+                    icon: Container(
+                      height: 15.sp,
+                      width: 15.sp,
+                      margin: EdgeInsets.symmetric(
+                          horizontal: 7.sp, vertical: 7.sp),
+                      child: Image.asset(
+                        CustomIcons.filterIcon,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide:
+                        BorderSide(color: const Color(0xFFF0F0F0), width: 1.sp),
+                    borderRadius: BorderRadius.all(Radius.circular(8.sp)),
+                  ),
+                  hintText: "Qidirish",
+                  hintStyle: TextStyle(
+                    color: const Color(0xFFE0E0E0),
+                    fontSize: 10.sp,
+                    fontWeight: FontWeight.w700,
+                  ),
+                  fillColor: Colors.white,
+                  filled: true,
+                  contentPadding: EdgeInsets.zero,
+                  prefixIcon: IconButton(
+                    onPressed: () {},
+                    icon: Container(
+                      height: 12.sp,
+                      width: 12.sp,
+                      margin: EdgeInsets.symmetric(
+                          horizontal: 7.sp, vertical: 7.sp),
+                      child: Image.asset(
+                        CustomIcons.searchIcon,
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 16.h,
+              ),
+              ListView.builder(
+                shrinkWrap: true,
+                itemCount: 1,
+                itemBuilder: (context, index) {
+                  return Container(
+                    padding: EdgeInsets.all(12.sp),
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(Radius.circular(4.sp))),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            CircleAvatar(
+                              minRadius: 30,
+                              child: Image.network(
+                                  "https://via.placeholder.com/44x44"),
+                            ),
+                            SizedBox(
+                              width: 8.w,
+                            ),
+                            //#name and adress
+                            Flexible(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Align(
+                                    alignment: Alignment.centerRight,
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        ...[
+                                          for (int i = 0; i < 4; i++)
+                                            Icon(
+                                              Icons.star,
+                                              color: CustomColors.starYellow,
+                                              size: 12.sp,
+                                            ),
+                                          for (int i = 0; i < 1; i++)
+                                            Icon(
+                                              Icons.star,
+                                              size: 12.sp,
+                                              color: CustomColors.starNeutral,
+                                            )
+                                        ]
+                                      ],
+                                    ),
+                                  ),
+                                  Text(
+                                    'Muslim Sobirov',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: CustomColors.masterNameColor,
+                                      fontSize: 12.sp,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 4.h,
+                                  ),
+                                  Text(
+                                    'Mirzo Ulug’bek, Toshkent sh.',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: CustomColors.titleBlue,
+                                      fontSize: 10.sp,
+                                      fontWeight: FontWeight.w300,
+                                      height: 0.10,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        Text(
+                          'MATOR buzuldimi hech ikkilanmasadan bizga olib kelavering, qo’li gul ustalarimiz hammasini zo’r qilib . berishadi',
+                          style: TextStyle(
+                            color: Color(0xFFA0A0A0),
+                            fontSize: 10.sp,
+                            overflow: TextOverflow.ellipsis,
+                            fontWeight: FontWeight.w300,
+                            height: 1.2,
+                          ),
+                          maxLines: 2,
+                        ),
+                        SizedBox(
+                          height: 12.h,
+                        ),
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: Wrap(
+                            runSpacing: 2.h,
+                            spacing: 2.w,
+                            children: [
+                              ...[
+                                for (int i = 0; i < 7; i++)
+                                  Container(
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 5.w, vertical: 2.h),
+                                    decoration: ShapeDecoration(
+                                      color: const Color(0xFFE5F0FF),
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(4.sp)),
+                                    ),
+                                    child: Text(
+                                      'Mator',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: Color(0xFF366AD2),
+                                        fontSize: 10.sp,
+                                        fontWeight: FontWeight.w300,
+                                      ),
+                                    ),
+                                  ),
+                              ]
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  );
+                },
+              )
+            ],
+          ),
         ),
       ),
     );

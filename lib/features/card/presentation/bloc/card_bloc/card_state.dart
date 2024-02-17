@@ -20,3 +20,7 @@ class CardError extends CardState {
 class CardSuccess extends CardState {
   const CardSuccess({required super.cards});
 }
+
+class CardSaveSuccess extends CardState {
+  const CardSaveSuccess({required super.cards});
+}
