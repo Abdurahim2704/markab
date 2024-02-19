@@ -56,7 +56,7 @@ class _ChoosingRolePageState extends State<ChoosingRolePage> {
                         height: 12.h,
                       ),
                       Transform.scale(
-                        scale: 1.5,
+                        scale: 1.1.sp,
                         child: Radio(
                           value: "Haydovchi",
                           groupValue: choice,
@@ -94,7 +94,7 @@ class _ChoosingRolePageState extends State<ChoosingRolePage> {
                         height: 12.h,
                       ),
                       Transform.scale(
-                        scale: 1.5,
+                        scale: 1.1.sp,
                         child: Radio(
                           value: "Usta",
                           groupValue: choice,

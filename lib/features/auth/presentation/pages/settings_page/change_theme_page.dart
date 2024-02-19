@@ -57,13 +57,16 @@ class _ChangeThemePageState extends State<ChangeThemePage> {
               width: 26.sp,
               height: 26.sp,
             ),
-            trailing: Radio(
-              value: 1,
-              fillColor:
-                  const MaterialStatePropertyAll(CustomColors.oxFF2F80ED),
-              activeColor: CustomColors.oxFF2F80ED,
-              groupValue: _selectedIndex,
-              onChanged: _onItemTapped,
+            trailing: Transform.scale(
+              scale: 1.sp,
+              child: Radio(
+                value: 1,
+                fillColor:
+                    const MaterialStatePropertyAll(CustomColors.oxFF2F80ED),
+                activeColor: CustomColors.oxFF2F80ED,
+                groupValue: _selectedIndex,
+                onChanged: _onItemTapped,
+              ),
             ),
           ),
           const SizedBox(height: 20),
@@ -82,13 +85,16 @@ class _ChangeThemePageState extends State<ChangeThemePage> {
               width: 26.sp,
               height: 26.sp,
             ),
-            trailing: Radio(
-              value: 0,
-              activeColor: CustomColors.oxFF2F80ED,
-              fillColor:
-                  const MaterialStatePropertyAll(CustomColors.oxFF2F80ED),
-              groupValue: _selectedIndex,
-              onChanged: _onItemTapped,
+            trailing: Transform.scale(
+              scale: 1.sp,
+              child: Radio(
+                value: 0,
+                activeColor: CustomColors.oxFF2F80ED,
+                fillColor:
+                    const MaterialStatePropertyAll(CustomColors.oxFF2F80ED),
+                groupValue: _selectedIndex,
+                onChanged: _onItemTapped,
+              ),
             ),
           ),
           const SizedBox(height: 20),
@@ -107,13 +113,16 @@ class _ChangeThemePageState extends State<ChangeThemePage> {
               width: 26.sp,
               height: 26.sp,
             ),
-            trailing: Radio(
-              value: 2,
-              activeColor: CustomColors.oxFF2F80ED,
-              fillColor:
-                  const MaterialStatePropertyAll(CustomColors.oxFF2F80ED),
-              groupValue: _selectedIndex,
-              onChanged: _onItemTapped,
+            trailing: Transform.scale(
+              scale: 1.sp,
+              child: Radio(
+                value: 2,
+                activeColor: CustomColors.oxFF2F80ED,
+                fillColor:
+                    const MaterialStatePropertyAll(CustomColors.oxFF2F80ED),
+                groupValue: _selectedIndex,
+                onChanged: _onItemTapped,
+              ),
             ),
           ),
         ],

@@ -56,11 +56,12 @@ class _CarRegisterPageState extends State<CarRegisterPage> {
                       ),
                     ),
                     child: TextField(
+                      scrollPhysics: const NeverScrollableScrollPhysics(),
                       controller: carNumberController,
                       textAlignVertical: TextAlignVertical.center,
                       style: TextStyle(
                         color: CustomColors.oxFF000000,
-                        fontSize: 30.sp,
+                        fontSize: 29.sp,
                         fontFamily: 'Proxima Nova',
                         fontWeight: FontWeight.w400,
                         height: 1,
