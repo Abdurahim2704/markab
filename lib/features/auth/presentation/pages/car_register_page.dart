@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:markab/config/core/constants/colors.dart';
-import 'package:markab/features/auth/presentation/pages/main_home_screen.dart';
+import 'package:markab/features/auth/presentation/pages/main_home_page.dart';
 import 'package:markab/features/auth/presentation/widgets/next_button.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 

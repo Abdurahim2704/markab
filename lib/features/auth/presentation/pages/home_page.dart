@@ -3,8 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:markab/config/core/constants/colors.dart';
 import 'package:markab/config/theme/theme.dart';
+import 'package:markab/features/auth/presentation/pages/documents_page.dart';
 import 'package:markab/features/auth/presentation/pages/notification_page.dart';
-import 'package:markab/features/auth/presentation/pages/penalties_screen.dart';
+import 'package:markab/features/auth/presentation/pages/penalties_page.dart';
 import 'package:markab/features/auth/presentation/pages/settings_page/settings_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -46,7 +47,14 @@ class HomePage extends StatelessWidget {
                       buildHomeSections(
                         iconPath: "assets/icons/ic_car_document.svg",
                         text: "Xujjatlar",
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const DocumentsPage(),
+                            ),
+                          );
+                        },
                       ),
                       buildHomeSections(
                         iconPath: "assets/icons/ic_document.svg",

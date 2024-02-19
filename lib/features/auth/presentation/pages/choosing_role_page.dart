@@ -135,6 +135,8 @@ class _ChoosingRolePageState extends State<ChoosingRolePage> {
                       height: 16.h,
                     ),
                     YesNoButton(
+                      fillColor: CustomColors.textfieldGrey,
+                      hasBorder: false,
                       child: Text(
                         'Ha',
                         textAlign: TextAlign.center,
@@ -145,8 +147,6 @@ class _ChoosingRolePageState extends State<ChoosingRolePage> {
                           height: 0.06,
                         ),
                       ),
-                      fillColor: CustomColors.textfieldGrey,
-                      hasBorder: false,
                     ),
                     SizedBox(
                       height: 16.h,
