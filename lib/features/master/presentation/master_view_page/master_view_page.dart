@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:markab/config/core/constants/colors.dart';
 import 'package:markab/config/core/constants/icons.dart';
 import 'package:markab/shared/widgets/appbar_title.dart';
@@ -85,13 +84,13 @@ class _MasterViewPageState extends State<MasterViewPage> {
                 decoration: InputDecoration(
                   enabledBorder: const OutlineInputBorder(
                     borderSide:
-                        BorderSide(color: CustomColors.oxFFF0F0F0, width: 1),
+                        BorderSide(color: CustomColors.textfieldGrey, width: 1),
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
                   border: const OutlineInputBorder(
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                     borderSide:
-                        BorderSide(color: CustomColors.oxFFF0F0F0, width: 1),
+                        BorderSide(color: CustomColors.textfieldGrey, width: 1),
                   ),
                   focusColor: Colors.transparent,
                   suffixIcon: IconButton(
@@ -104,7 +103,7 @@ class _MasterViewPageState extends State<MasterViewPage> {
                         horizontal: 7.sp,
                         vertical: 7.sp,
                       ),
-                      child: SvgPicture.asset(
+                      child: Image.asset(
                         CustomIcons.filterIcon,
                         height: 15.sp,
                         width: 15.sp,
@@ -187,14 +186,14 @@ class _MasterViewPageState extends State<MasterViewPage> {
                                           for (int i = 0; i < 4; i++)
                                             Icon(
                                               Icons.star,
-                                              color: CustomColors.oxFFFFE925,
+                                              color: CustomColors.starColor,
                                               size: 12.sp,
                                             ),
                                           for (int i = 0; i < 1; i++)
                                             Icon(
                                               Icons.star,
                                               size: 12.sp,
-                                              color: CustomColors.oxFFE5F0FF,
+                                              color: CustomColors.skillBlue,
                                             )
                                         ]
                                       ],
@@ -230,7 +229,7 @@ class _MasterViewPageState extends State<MasterViewPage> {
                         Text(
                           'MATOR buzuldimi hech ikkilanmasadan bizga olib kelavering, qo’li gul ustalarimiz hammasini zo’r qilib . berishadi',
                           style: TextStyle(
-                            color: CustomColors.oxFFA0A0A0,
+                            color: CustomColors.grey,
                             fontSize: 10.sp,
                             overflow: TextOverflow.ellipsis,
                             fontWeight: FontWeight.w300,
@@ -253,7 +252,7 @@ class _MasterViewPageState extends State<MasterViewPage> {
                                       vertical: 2.h,
                                     ),
                                     decoration: const ShapeDecoration(
-                                      color: CustomColors.oxFFE5F0FF,
+                                      color: CustomColors.skillBlue,
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.all(
                                           Radius.circular(5),
