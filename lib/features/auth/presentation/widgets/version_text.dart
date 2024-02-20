@@ -14,7 +14,7 @@ class VersionText extends StatelessWidget {
         'Versiya v1.0.0',
         textAlign: TextAlign.center,
         style: TextStyle(
-          color: CustomColors.oxFFCA0A0A0,
+          color: CustomColors.oxFFA0A0A0,
           fontSize: 12.sp,
           fontWeight: FontWeight.w400,
         ),

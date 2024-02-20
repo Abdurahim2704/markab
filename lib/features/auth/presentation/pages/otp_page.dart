@@ -85,7 +85,7 @@ class _OTPPageState extends State<OTPPage> {
                     '$minute:$second',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      color: CustomColors.oxFFCA0A0A0,
+                      color: CustomColors.oxFFA0A0A0,
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w400,
                       height: 0.07,
