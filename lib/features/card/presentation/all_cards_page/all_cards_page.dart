@@ -32,8 +32,13 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => CardBloc()
-            ..add(const SaveCardEvent(
-                name: "name", expireDate: "09/12", cardNumber: "fdghjkgadsk"))
+            ..add(
+              const SaveCardEvent(
+                name: "name",
+                expireDate: "09/12",
+                cardNumber: "fdghjkgadsk",
+              ),
+            )
             ..add(const GetLocalCardEvent()),
         ),
       ],
@@ -56,23 +61,30 @@ class AllCardsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        scrolledUnderElevation: 0,
+        backgroundColor: CustomColors.oxFFFFFFFF,
         title: const AppBarTitle(
           text: "Kartalar",
         ),
         actions: [
           MaterialButton(
             padding: EdgeInsets.zero,
-            minWidth: 30.w,
-            height: 30.w,
+            minWidth: 27.sp,
+            height: 27.sp,
             onPressed: () {},
             color: CustomColors.titleBlue,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(5.sp))),
+              borderRadius: BorderRadius.all(
+                Radius.circular(5.sp),
+              ),
+            ),
             child: const Icon(
               CupertinoIcons.plus,
               color: Colors.white,
             ),
-          )
+          ),
+          SizedBox(width: 8.w),
         ],
       ),
       body: SizedBox.expand(
@@ -82,7 +94,7 @@ class AllCardsPage extends StatelessWidget {
           ),
           child: Center(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 14.w),
+              padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 12.h),
               child: BlocBuilder<CardBloc, CardState>(
                 builder: (context, state) {
                   return ListView.separated(

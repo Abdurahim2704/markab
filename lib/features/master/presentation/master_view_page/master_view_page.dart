@@ -64,6 +64,9 @@ class _MasterViewPageState extends State<MasterViewPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: CustomColors.oxFFFFFFFF,
+        scrolledUnderElevation: 0,
         title: const AppBarTitle(
           text: "Ustalar",
         ),
@@ -85,10 +88,14 @@ class _MasterViewPageState extends State<MasterViewPage> {
                   enabledBorder: const OutlineInputBorder(
                     borderSide:
                         BorderSide(color: CustomColors.textfieldGrey, width: 1),
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
+                    ),
                   ),
                   border: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
+                    ),
                     borderSide:
                         BorderSide(color: CustomColors.textfieldGrey, width: 1),
                   ),
@@ -145,139 +152,143 @@ class _MasterViewPageState extends State<MasterViewPage> {
                 ),
               ),
               SizedBox(height: 16.h),
-              ListView.builder(
-                shrinkWrap: true,
-                itemCount: 1,
-                itemBuilder: (context, index) {
-                  return Container(
-                    padding: EdgeInsets.all(12.sp),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(4.sp)),
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            CircleAvatar(
-                              radius: 24.sp,
-                              child: const Image(
-                                image: AssetImage(
-                                  "assets/images/img_master_muslim.png",
+              Expanded(
+                child: ListView.separated(
+                  separatorBuilder: (context, index) => SizedBox(height: 12.w),
+                  shrinkWrap: true,
+                  itemCount: 3,
+                  itemBuilder: (context, index) {
+                    return Container(
+                      padding: EdgeInsets.all(12.sp),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.all(Radius.circular(4.sp)),
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              CircleAvatar(
+                                radius: 24.sp,
+                                child: const Image(
+                                  image: AssetImage(
+                                    "assets/images/img_master_muslim.png",
+                                  ),
                                 ),
                               ),
-                            ),
-                            SizedBox(width: 10.sp),
-                            //#name and adress
-                            Flexible(
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Align(
-                                    alignment: Alignment.centerRight,
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        ...[
-                                          for (int i = 0; i < 4; i++)
-                                            Icon(
-                                              Icons.star,
-                                              color: CustomColors.starColor,
-                                              size: 12.sp,
-                                            ),
-                                          for (int i = 0; i < 1; i++)
-                                            Icon(
-                                              Icons.star,
-                                              size: 12.sp,
-                                              color: CustomColors.skillBlue,
-                                            )
-                                        ]
-                                      ],
+                              SizedBox(width: 10.sp),
+                              //#name and adress
+                              Flexible(
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Align(
+                                      alignment: Alignment.centerRight,
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          ...[
+                                            for (int i = 0; i < 4; i++)
+                                              Icon(
+                                                Icons.star,
+                                                color: CustomColors.starColor,
+                                                size: 12.sp,
+                                              ),
+                                            for (int i = 0; i < 1; i++)
+                                              Icon(
+                                                Icons.star,
+                                                size: 12.sp,
+                                                color: CustomColors.skillBlue,
+                                              )
+                                          ]
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                  Text(
-                                    'Muslim Sobirov',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      color: CustomColors.oxFF4B4B4B,
-                                      fontSize: 12.sp,
+                                    Text(
+                                      'Muslim Sobirov',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: CustomColors.oxFF4B4B4B,
+                                        fontSize: 12.sp,
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(height: 5.h),
-                                  Text(
-                                    'Mirzo Ulug’bek, Toshkent sh.',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      color: CustomColors.titleBlue,
-                                      fontSize: 10.sp,
-                                      fontWeight: FontWeight.w300,
-                                      height: 0.10,
+                                    SizedBox(height: 5.h),
+                                    Text(
+                                      'Mirzo Ulug’bek, Toshkent sh.',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        color: CustomColors.titleBlue,
+                                        fontSize: 10.sp,
+                                        fontWeight: FontWeight.w300,
+                                        height: 0.10,
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Text(
-                          'MATOR buzuldimi hech ikkilanmasadan bizga olib kelavering, qo’li gul ustalarimiz hammasini zo’r qilib . berishadi',
-                          style: TextStyle(
-                            color: CustomColors.grey,
-                            fontSize: 10.sp,
-                            overflow: TextOverflow.ellipsis,
-                            fontWeight: FontWeight.w300,
-                            height: 1.2,
+                            ],
                           ),
-                          maxLines: 2,
-                        ),
-                        SizedBox(height: 12.sp),
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child: Wrap(
-                            runSpacing: 2.h,
-                            spacing: 2.w,
-                            children: [
-                              ...[
-                                for (int i = 0; i < 7; i++)
-                                  Container(
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: 5.w,
-                                      vertical: 2.h,
-                                    ),
-                                    decoration: const ShapeDecoration(
-                                      color: CustomColors.skillBlue,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.all(
-                                          Radius.circular(5),
+                          SizedBox(
+                            height: 10.h,
+                          ),
+                          Text(
+                            'MATOR buzuldimi hech ikkilanmasadan bizga olib kelavering, qo’li gul ustalarimiz hammasini zo’r qilib . berishadi',
+                            style: TextStyle(
+                              color: CustomColors.grey,
+                              fontSize: 10.sp,
+                              overflow: TextOverflow.ellipsis,
+                              fontWeight: FontWeight.w300,
+                              height: 1.2,
+                            ),
+                            maxLines: 2,
+                          ),
+                          SizedBox(height: 12.sp),
+                          Align(
+                            alignment: Alignment.topLeft,
+                            child: Wrap(
+                              runSpacing: 2.h,
+                              spacing: 2.w,
+                              children: [
+                                ...[
+                                  for (int i = 0; i < 7; i++)
+                                    Container(
+                                      padding: EdgeInsets.symmetric(
+                                        horizontal: 5.w,
+                                        vertical: 2.h,
+                                      ),
+                                      decoration: const ShapeDecoration(
+                                        color: CustomColors.skillBlue,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.all(
+                                            Radius.circular(5),
+                                          ),
+                                        ),
+                                      ),
+                                      child: Text(
+                                        'Mator',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          color: CustomColors.oxFF366AD2,
+                                          fontSize: 10.sp,
+                                          fontWeight: FontWeight.w300,
                                         ),
                                       ),
                                     ),
-                                    child: Text(
-                                      'Mator',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        color: CustomColors.oxFF366AD2,
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.w300,
-                                      ),
-                                    ),
-                                  ),
+                                ],
                               ],
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  );
-                },
+                            ),
+                          )
+                        ],
+                      ),
+                    );
+                  },
+                ),
               ),
+              SizedBox(height: 15.h),
             ],
           ),
         ),

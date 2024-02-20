@@ -9,8 +9,11 @@ class GetCardEvent extends CardEvent {
   final String expireDate;
   final String name;
 
-  const GetCardEvent(
-      {required this.name, required this.expireDate, required this.cardNumber});
+  const GetCardEvent({
+    required this.name,
+    required this.expireDate,
+    required this.cardNumber,
+  });
 }
 
 class GetLocalCardEvent extends CardEvent {

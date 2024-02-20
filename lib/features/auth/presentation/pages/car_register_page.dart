@@ -46,7 +46,7 @@ class _CarRegisterPageState extends State<CarRegisterPage> {
                 children: [
                   Container(
                     margin: EdgeInsets.zero,
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                    padding: EdgeInsets.symmetric(horizontal: 14.w),
                     width: 240.sp,
                     height: 50.sp,
                     decoration: BoxDecoration(
