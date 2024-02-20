@@ -34,7 +34,6 @@ class MarkabApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           theme: AppTheme.lightTheme,
           routerConfig: AppRouter().router,
-          // home: const CarRegisterPage(),
         ),
       ),
     );

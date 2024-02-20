@@ -288,7 +288,6 @@ class _MasterViewPageState extends State<MasterViewPage> {
                   },
                 ),
               ),
-              SizedBox(height: 15.h),
             ],
           ),
         ),

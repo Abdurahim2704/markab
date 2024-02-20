@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:markab/config/core/constants/colors.dart';
@@ -11,6 +12,8 @@ import 'package:markab/features/master/presentation/master_view_page/master_view
 import '../../../../config/theme/theme.dart';
 import '../../../../locator.dart';
 import '../../../../observer.dart';
+import '../../../card/presentation/bloc/card_bloc/card_bloc.dart';
+import '../bloc/auth/auth_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,12 +28,29 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      designSize: const Size(294, 636),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: AppTheme.lightTheme,
-        home: const MainHomeScreen(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => AuthBloc(),
+        ),
+        BlocProvider(
+          create: (context) => CardBloc()
+            ..add(
+              const GetCardEvent(
+                name: "name",
+                expireDate: "expireDate",
+                cardNumber: "cardNumber",
+              ),
+            ),
+        ),
+      ],
+      child: ScreenUtilInit(
+        designSize: const Size(294, 636),
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          theme: AppTheme.lightTheme,
+          home: const MainHomeScreen(),
+        ),
       ),
     );
   }
