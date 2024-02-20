@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:markab/config/core/constants/colors.dart';
-import 'package:markab/features/auth/presentation/pages/map_page.dart';
+import 'package:markab/features/auth/presentation/pages/map_page/map_page.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class CarRegisterPage extends StatefulWidget {
@@ -65,6 +65,7 @@ class _CarRegisterPageState extends State<CarRegisterPage> {
                         carNumberMask,
                       ],
                       decoration: InputDecoration(
+
                         // enabledBorder: OutlineInputBorder(
                         //   borderSide: BorderSide(
                         //       color: CustomColors.textfieldBorder,
@@ -79,11 +80,6 @@ class _CarRegisterPageState extends State<CarRegisterPage> {
                           fontWeight: FontWeight.w400,
                           // height: 1,
                         ),
-                        // focusedBorder: OutlineInputBorder(
-                        //   borderSide: BorderSide(
-                        //       color: CustomColors.primaryBlueColor,
-                        //       width: 3.h),
-                        // ),
                       ),
 
                     ),
@@ -97,7 +93,7 @@ class _CarRegisterPageState extends State<CarRegisterPage> {
               ),
               SizedBox(height: 50,),
               ElevatedButton(onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => MapPage(),));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => MapScreen(),));
               }, child: Icon(Icons.arrow_forward_ios))
             ],
           ),
