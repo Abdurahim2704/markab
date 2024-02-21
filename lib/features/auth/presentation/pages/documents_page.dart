@@ -7,7 +7,8 @@ import 'package:markab/shared/widgets/appbar_title.dart';
 class Documents {
   final String iconPath;
   final String title;
-  final String deadline;
+  final DateTime
+      deadline; // String o'rniga DateTime bo'lishi kerak. 01.01.2031 => deadline.split(".") => 01 yanvar 2031
   final String chartDays;
 
   Documents.arrow({
@@ -83,7 +84,7 @@ Widget buildOption(
                     ),
                     SizedBox(width: 8.w),
                     Text(
-                      data.deadline,
+                      "${data.deadline.month} ${data.deadline.year} ${data.deadline.day}",
                       style: TextStyle(
                         fontSize: 13.sp,
                         fontFamily: "Proxima Nova",
@@ -149,37 +150,37 @@ class _DocumentsPageState extends State<DocumentsPage> {
         Documents.arrow(
           iconPath: _leadingIcon("ic_technical_inspection.svg"),
           title: "Texnik ko’rik",
-          deadline: "01-yanvar 2031",
+          deadline: DateTime.utc(2031, 1,1),
           chartDays: "7 yil 28 kun",
         ),
         Documents.arrow(
           iconPath: _leadingIcon("ic_insurance.svg"),
           title: "Sug’urta",
-          deadline: "28 mart 2024",
+          deadline: DateTime.utc(2031, 1,1),
           chartDays: "3 oy 24 kun",
         ),
         Documents.arrow(
           iconPath: _leadingIcon("ic_assurance.svg"),
           title: "Ishonchnoma",
-          deadline: "28 mart 2024",
+          deadline: DateTime.utc(2031, 1,1),
           chartDays: "3 oy 24 kun",
         ),
         Documents.arrow(
           iconPath: _leadingIcon("ic_tonirovka.svg"),
           title: "Tonirovka",
-          deadline: "28 mart 2024",
+          deadline: DateTime.utc(2031, 1,1),
           chartDays: "3 oy 24 kun",
         ),
         Documents.arrow(
           iconPath: _leadingIcon("ic_oil.svg"),
           title: "Moyi",
-          deadline: "28 mart 2024",
+          deadline: DateTime.utc(2031, 1,1),
           chartDays: "3 oy 24 kun",
         ),
         Documents.arrow(
           iconPath: _leadingIcon("ic_gas.svg"),
           title: "Gaz",
-          deadline: "28 mart 2024",
+          deadline: DateTime.utc(2031, 1,1),
           chartDays: "3 oy 24 kun",
         ),
       ];
