@@ -6,12 +6,10 @@ import 'package:markab/config/theme/theme.dart';
 import 'package:markab/features/home/presentation/pages/documents_page.dart';
 import 'package:markab/features/home/presentation/pages/home_page/views/build_home_sections.dart';
 import 'package:markab/features/home/presentation/pages/home_page/views/chosen_masters_card.dart';
-import 'package:markab/features/home/presentation/pages/home_page/views/header_indicator.dart';
 import 'package:markab/features/home/presentation/pages/home_page/views/home_app_bar.dart';
 import 'package:markab/features/home/presentation/pages/home_page/views/home_header.dart';
 
 import '../penalties_page/penalties_page.dart';
-
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -38,11 +36,6 @@ class HomePage extends StatelessWidget {
 
                   /// #Home Header
                   const HomeScreenHeader(),
-
-                  SizedBox(height: 15.sp),
-
-                  /// #Page Indicator
-                  const HeaderBannerIndicator(),
 
                   SizedBox(height: 28.sp),
 

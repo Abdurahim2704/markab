@@ -2,10 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:markab/config/core/constants/colors.dart';
 
-class HeaderBannerIndicator extends StatelessWidget {
-  const HeaderBannerIndicator({
+
+class HeaderPageIndicator extends StatelessWidget {
+  const HeaderPageIndicator({
     super.key,
-  });
+    required int currentPage,
+  }) : _currentPage = currentPage;
+
+  final int _currentPage;
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +33,13 @@ class HeaderBannerIndicator extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          CircleAvatar(
-            radius: 4.5.sp,
-            backgroundColor: CustomColors.oxFFFF346AD2,
-          ),
-          CircleAvatar(
-            radius: 4.5.sp,
-            backgroundColor: CustomColors.oxFFB2D3FF,
-          ),
+          for (int i = 0; i < 2; i++)
+            CircleAvatar(
+              radius: 4.5.sp,
+              backgroundColor: i == _currentPage
+                  ? CustomColors.oxFFFF346AD2
+                  : CustomColors.oxFFB2D3FF,
+            ),
         ],
       ),
     );
