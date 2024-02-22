@@ -22,6 +22,7 @@ Widget buildOption(
   Documents data,
   void Function() onTap,
 ) {
+  final overallTime = DateTime(2);
   return InkWell(
     borderRadius: const BorderRadius.all(
       Radius.circular(6),
@@ -104,16 +105,23 @@ Widget buildOption(
               color: CustomColors.oxFFB2D3FF,
               child: Stack(
                 children: [
-                  Container(
-                    width: data.deadline == "01-yanvar 2031" ? 210.w : 126.w,
-                    decoration: const BoxDecoration(
-                      color: CustomColors.oxFF2F80ED,
-                      borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(5),
-                        bottomRight: Radius.circular(5),
-                        bottomLeft: Radius.circular(5),
-                      ),
-                    ),
+                  TweenAnimationBuilder<double>(
+                    tween: Tween<double>(begin: 0.0, end: 1.0),
+                    duration: Duration(seconds: 1),
+                    builder:
+                        (BuildContext context, double value, Widget? child) {
+                      return Container(
+                        width: value * 200,
+                        decoration: const BoxDecoration(
+                          color: CustomColors.oxFF2F80ED,
+                          borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(5),
+                            bottomRight: Radius.circular(5),
+                            bottomLeft: Radius.circular(5),
+                          ),
+                        ),
+                      );
+                    },
                   ),
                   Center(
                     child: Text(
