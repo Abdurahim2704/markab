@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:markab/config/core/constants/colors.dart';
-import 'package:markab/features/auth/presentation/pages/penalties_page/views/app_bar_bottom.dart';
+import 'package:markab/features/home/presentation/pages/penalties_page/views/app_bar_bottom.dart';
 import 'package:markab/shared/widgets/appbar_title.dart';
 
 class PenaltiesScreen extends StatefulWidget {

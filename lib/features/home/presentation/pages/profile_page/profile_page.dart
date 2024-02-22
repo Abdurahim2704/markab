@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:markab/config/core/constants/colors.dart';
 import 'package:markab/config/theme/theme.dart';
-import 'package:markab/features/auth/presentation/pages/profile_page/views/profile_tile.dart';
+import 'package:markab/features/home/presentation/pages/profile_page/views/profile_tile.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});

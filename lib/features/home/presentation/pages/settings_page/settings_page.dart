@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:markab/config/core/constants/colors.dart';
 import 'package:markab/config/theme/theme.dart';
-import 'package:markab/features/auth/presentation/pages/settings_page/views/settings_datas.dart';
-import 'package:markab/features/auth/presentation/pages/settings_page/views/settings_tile.dart';
+import 'package:markab/features/home/presentation/pages/settings_page/views/settings_datas.dart';
+import 'package:markab/features/home/presentation/pages/settings_page/views/settings_tile.dart';
 import 'package:markab/locator.dart';
 import 'package:markab/observer.dart';
 
@@ -32,8 +32,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});

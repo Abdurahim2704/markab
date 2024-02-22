@@ -1,6 +1,6 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:markab/features/auth/presentation/pages/settings_page/views/settings_options.dart';
+import 'package:markab/features/home/presentation/pages/settings_page/views/settings_options.dart';
 
 _profileIcon(String last) => 'assets/icons/$last';
 

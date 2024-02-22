@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:markab/config/core/constants/colors.dart';
-import 'package:markab/features/auth/presentation/pages/settings_page/FAQPage.dart';
-import 'package:markab/features/auth/presentation/pages/settings_page/change_language_page.dart';
-import 'package:markab/features/auth/presentation/pages/settings_page/change_theme_page.dart';
-import 'package:markab/features/auth/presentation/pages/settings_page/contact_page.dart';
-import 'package:markab/features/auth/presentation/pages/settings_page/share_page.dart';
-import 'package:markab/features/auth/presentation/pages/settings_page/views/settings_options.dart';
+import 'package:markab/features/home/presentation/pages/settings_page/views/settings_options.dart';
+
+import '../FAQPage.dart';
+import '../change_language_page.dart';
+import '../change_theme_page.dart';
+import '../contact_page.dart';
+import '../share_page.dart';
 
 class SettingsTile extends StatelessWidget {
   final int index;
