@@ -6,6 +6,7 @@ class MyGlobalObserver extends BlocObserver {
   void onEvent(Bloc bloc, Object? event) {
     super.onEvent(bloc, event);
     debugPrint(
-        "${bloc.runtimeType} State: ${bloc.state.runtimeType} Event: ${event.runtimeType}");
+      "${bloc.runtimeType} State: ${bloc.state.runtimeType} Event: ${event.runtimeType}",
+    );
   }
 }

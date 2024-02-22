@@ -7,13 +7,13 @@ class CardEntity extends Equatable {
   final String expireDate;
   String name;
 
-  CardEntity(
-      {required this.cardNumber,
-      required this.bank,
-      required this.expireDate,
-      required this.name,
-      required double balance})
-      : _balance = balance;
+  CardEntity({
+    required this.cardNumber,
+    required this.bank,
+    required this.expireDate,
+    required this.name,
+    required double balance,
+  }) : _balance = balance;
 
   set balance(double value) {
     if (value > 0) {
