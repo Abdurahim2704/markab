@@ -7,8 +7,7 @@ import 'package:markab/shared/widgets/appbar_title.dart';
 class Documents {
   final String iconPath;
   final String title;
-  final DateTime
-      deadline; // String o'rniga DateTime bo'lishi kerak. 01.01.2031 => deadline.split(".") => 01 yanvar 2031
+  final DateTime deadline;
   final String chartDays;
 
   Documents.arrow({
@@ -120,6 +119,7 @@ Widget buildOption(
                     builder:
                         (BuildContext context, double value, Widget? child) {
                       return Container(
+                        clipBehavior: Clip.antiAlias,
                         width: isEarlier
                             ? 270.sp
                             : value *
@@ -131,10 +131,10 @@ Widget buildOption(
                         decoration: BoxDecoration(
                           color:
                               isEarlier ? Colors.red : CustomColors.oxFF2F80ED,
-                          borderRadius: const BorderRadius.only(
-                            topRight: Radius.circular(5),
-                            bottomRight: Radius.circular(5),
-                            bottomLeft: Radius.circular(5),
+                          borderRadius: BorderRadius.only(
+                            topRight: isEarlier == false ? const Radius.circular(5) : const Radius.circular(0),
+                            bottomRight: const Radius.circular(5),
+                            bottomLeft: const Radius.circular(5),
                           ),
                         ),
                       );
@@ -236,7 +236,7 @@ class _DocumentsPageState extends State<DocumentsPage> {
       body: ListView.separated(
         itemCount: datas.length,
         separatorBuilder: (context, index) => SizedBox(height: 10.sp),
-        padding: EdgeInsets.symmetric(vertical: 10.sp, horizontal: 12.sp),
+        padding: EdgeInsets.only(left: 12.sp, right: 12.sp, top: 10.h, bottom: 20.h),
         itemBuilder: (context, index) {
           final data = datas[index];
           return buildOption(
