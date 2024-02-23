@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:markab/config/core/constants/colors.dart';
-import 'package:markab/config/core/constants/icons.dart';
 import 'package:markab/features/auth/data/models/location.dart';
 import 'package:markab/features/auth/data/models/mechanic.dart';
 import 'package:markab/features/master/presentation/master_view_page/widgets/master_card.dart';
