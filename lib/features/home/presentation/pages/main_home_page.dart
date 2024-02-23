@@ -1,11 +1,8 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:markab/config/core/constants/colors.dart';
-import 'package:markab/features/auth/presentation/pages/home_page.dart';
-import 'package:markab/features/auth/presentation/pages/profile_page.dart';
 import 'package:markab/features/card/presentation/all_cards_page/all_cards_page.dart';
 import 'package:markab/features/master/presentation/master_view_page/master_view_page.dart';
 
@@ -13,7 +10,9 @@ import '../../../../config/theme/theme.dart';
 import '../../../../locator.dart';
 import '../../../../observer.dart';
 import '../../../card/presentation/bloc/card_bloc/card_bloc.dart';
-import '../bloc/auth/auth_bloc.dart';
+import 'home_page/home_page.dart';
+import 'profile_page/profile_page.dart';
+import '../../../auth/presentation/bloc/auth/auth_bloc.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
