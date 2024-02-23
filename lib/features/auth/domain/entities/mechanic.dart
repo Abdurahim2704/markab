@@ -15,11 +15,11 @@ class MechanicEntity {
     required this.userId,
     required this.location,
     required this.id,
-    this.skills = const [],
+    List<String> skills = const [],
     required this.name,
     required this.grade,
     required this.about,
     required this.address,
     required this.image,
-  });
+  }) : skills = skills.toSet().toList();
 }

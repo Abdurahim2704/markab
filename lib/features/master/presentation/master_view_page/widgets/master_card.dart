@@ -41,13 +41,13 @@ class MasterCard extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           ...[
-                            for (int i = 0; i < 4; i++)
+                            for (int i = 0; i < master.grade.toInt(); i++)
                               Icon(
                                 Icons.star,
                                 color: Color(0xFFFFE925),
                                 size: 12.sp,
                               ),
-                            for (int i = 0; i < 1; i++)
+                            for (int i = 0; i < (5 - master.grade.toInt()); i++)
                               Icon(
                                 Icons.star,
                                 size: 12.sp,

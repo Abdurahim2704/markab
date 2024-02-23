@@ -11,6 +11,7 @@ class Mechanic extends MechanicEntity {
     required super.about,
     required super.address,
     required super.image,
+    super.skills,
   });
 
   factory Mechanic.fromJson(Map<String, Object?> json) {

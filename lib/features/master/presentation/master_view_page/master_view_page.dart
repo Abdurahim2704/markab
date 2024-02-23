@@ -3,6 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:markab/config/core/constants/colors.dart';
 import 'package:markab/config/core/constants/icons.dart';
+import 'package:markab/features/auth/data/models/location.dart';
+import 'package:markab/features/auth/data/models/mechanic.dart';
+import 'package:markab/features/master/presentation/master_view_page/widgets/master_card.dart';
+import 'package:markab/features/master/presentation/master_view_page/widgets/search_field.dart';
 import 'package:markab/shared/widgets/appbar_title.dart';
 
 import '../../../../config/theme/theme.dart';
@@ -60,6 +64,36 @@ class MasterViewPage extends StatefulWidget {
 }
 
 class _MasterViewPageState extends State<MasterViewPage> {
+  final master = Mechanic(
+    userId: 1,
+    location: Location(latitude: 3.2, longitude: 4.2),
+    id: 1,
+    name: "Jumayev Firdavs",
+    grade: 3,
+    about: "Men yaxshi dasturchiman hozir TATUda o'qiyman",
+    address: "Mening adresim Yunusobod 9",
+    skills: [
+      "dasturlash",
+      "payvandalsh",
+      "ovqat qilish",
+      "o'qish",
+      "fizika",
+      "matematika",
+      "dasturlash",
+      "payvandalsh",
+      "ovqat qilish",
+      "o'qish",
+      "fizika",
+      "matematika",
+      "dasturlash",
+      "payvandalsh",
+      "ovqat qilish",
+      "o'qish",
+      "fizika",
+      "matematika",
+    ],
+    image: "",
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,212 +112,20 @@ class _MasterViewPageState extends State<MasterViewPage> {
           child: Column(
             children: [
               SizedBox(height: 20.h),
-              TextField(
-                style: TextStyle(
-                  fontSize: 10.sp,
-                  color: Colors.black,
-                  fontWeight: FontWeight.w500,
-                ),
-                decoration: InputDecoration(
-                  enabledBorder: const OutlineInputBorder(
-                    borderSide:
-                        BorderSide(color: CustomColors.textfieldGrey, width: 1),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10),
-                    ),
-                  ),
-                  border: const OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10),
-                    ),
-                    borderSide:
-                        BorderSide(color: CustomColors.textfieldGrey, width: 1),
-                  ),
-                  focusColor: Colors.transparent,
-                  suffixIcon: IconButton(
-                    onPressed: () {},
-                    padding: EdgeInsets.zero,
-                    icon: Container(
-                      height: 15.sp,
-                      width: 15.sp,
-                      margin: EdgeInsets.symmetric(
-                        horizontal: 7.sp,
-                        vertical: 7.sp,
-                      ),
-                      child: Image.asset(
-                        CustomIcons.filterIcon,
-                        height: 15.sp,
-                        width: 15.sp,
-                      ),
-                    ),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide:
-                        BorderSide(color: const Color(0xFFF0F0F0), width: 1.sp),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(8.sp),
-                    ),
-                  ),
-                  hintText: "Qidirish",
-                  hintStyle: TextStyle(
-                    color: const Color(0xFFE0E0E0),
-                    fontSize: 10.sp,
-                    fontWeight: FontWeight.w700,
-                  ),
-                  fillColor: Colors.white,
-                  filled: true,
-                  contentPadding: EdgeInsets.zero,
-                  prefixIcon: IconButton(
-                    onPressed: () {},
-                    icon: Container(
-                      height: 12.sp,
-                      width: 12.sp,
-                      margin: EdgeInsets.symmetric(
-                        horizontal: 7.sp,
-                        vertical: 7.sp,
-                      ),
-                      child: Image.asset(
-                        CustomIcons.searchIcon,
-                        height: 15.sp,
-                        width: 15.sp,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              const SearchField(),
               SizedBox(height: 16.h),
               Expanded(
-                child: ListView.separated(
-                  separatorBuilder: (context, index) => SizedBox(height: 12.w),
-                  shrinkWrap: true,
-                  itemCount: 3,
+                child: ListView.builder(
+                  itemCount: 5,
                   itemBuilder: (context, index) {
-                    return Container(
-                      padding: EdgeInsets.all(12.sp),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.all(Radius.circular(4.sp)),
-                      ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              CircleAvatar(
-                                radius: 24.sp,
-                                child: const Image(
-                                  image: AssetImage(
-                                    "assets/images/img_master_muslim.png",
-                                  ),
-                                ),
-                              ),
-                              SizedBox(width: 10.sp),
-                              //#name and adress
-                              Flexible(
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Align(
-                                      alignment: Alignment.centerRight,
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          ...[
-                                            for (int i = 0; i < 4; i++)
-                                              Icon(
-                                                Icons.star,
-                                                color: CustomColors.starColor,
-                                                size: 12.sp,
-                                              ),
-                                            for (int i = 0; i < 1; i++)
-                                              Icon(
-                                                Icons.star,
-                                                size: 12.sp,
-                                                color: CustomColors.skillBlue,
-                                              )
-                                          ]
-                                        ],
-                                      ),
-                                    ),
-                                    Text(
-                                      'Muslim Sobirov',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        color: CustomColors.oxFF4B4B4B,
-                                        fontSize: 12.sp,
-                                      ),
-                                    ),
-                                    SizedBox(height: 5.h),
-                                    Text(
-                                      'Mirzo Ulug’bek, Toshkent sh.',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        color: CustomColors.titleBlue,
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.w300,
-                                        height: 0.10,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10.h,
-                          ),
-                          Text(
-                            'MATOR buzuldimi hech ikkilanmasadan bizga olib kelavering, qo’li gul ustalarimiz hammasini zo’r qilib . berishadi',
-                            style: TextStyle(
-                              color: CustomColors.grey,
-                              fontSize: 10.sp,
-                              overflow: TextOverflow.ellipsis,
-                              fontWeight: FontWeight.w300,
-                              height: 1.2,
-                            ),
-                            maxLines: 2,
-                          ),
-                          SizedBox(height: 12.sp),
-                          Align(
-                            alignment: Alignment.topLeft,
-                            child: Wrap(
-                              runSpacing: 2.h,
-                              spacing: 2.w,
-                              children: [
-                                ...[
-                                  for (int i = 0; i < 7; i++)
-                                    Container(
-                                      padding: EdgeInsets.symmetric(
-                                        horizontal: 5.w,
-                                        vertical: 2.h,
-                                      ),
-                                      decoration: const ShapeDecoration(
-                                        color: CustomColors.skillBlue,
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.all(
-                                            Radius.circular(5),
-                                          ),
-                                        ),
-                                      ),
-                                      child: Text(
-                                        'Mator',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                          color: CustomColors.oxFF366AD2,
-                                          fontSize: 10.sp,
-                                          fontWeight: FontWeight.w300,
-                                        ),
-                                      ),
-                                    ),
-                                ],
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
+                    return Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        MasterCard(
+                          master: master,
+                        ),
+                        SizedBox(height: 12.w)
+                      ],
                     );
                   },
                 ),
