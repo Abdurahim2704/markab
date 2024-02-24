@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:markab/config/core/constants/colors.dart';
 import 'package:markab/features/master/presentation/master_detail_page/master_detail_page.dart';
 import 'package:markab/main.dart';

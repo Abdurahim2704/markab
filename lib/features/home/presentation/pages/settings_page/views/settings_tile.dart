@@ -6,12 +6,6 @@ import 'package:markab/config/core/constants/colors.dart';
 import 'package:markab/config/core/routes/route.dart';
 import 'package:markab/features/home/presentation/pages/settings_page/views/settings_options.dart';
 
-import '../FAQPage.dart';
-import '../change_language_page.dart';
-import '../change_theme_page.dart';
-import '../contact_page.dart';
-import '../share_page.dart';
-
 class SettingsTile extends StatelessWidget {
   final int index;
   final SettingsOption data;

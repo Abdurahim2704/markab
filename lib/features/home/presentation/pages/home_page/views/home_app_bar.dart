@@ -6,7 +6,6 @@ import 'package:markab/config/core/constants/colors.dart';
 import 'package:markab/config/core/routes/route.dart';
 
 import '../../notification_page/notification_page.dart';
-import '../../settings_page/settings_page.dart';
 
 class HomeAppBar extends StatelessWidget {
   const HomeAppBar({

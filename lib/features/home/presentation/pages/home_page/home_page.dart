@@ -5,13 +5,10 @@ import 'package:go_router/go_router.dart';
 import 'package:markab/config/core/constants/colors.dart';
 import 'package:markab/config/core/routes/route.dart';
 import 'package:markab/config/theme/theme.dart';
-import 'package:markab/features/home/presentation/pages/documents_page.dart';
 import 'package:markab/features/home/presentation/pages/home_page/views/build_home_sections.dart';
 import 'package:markab/features/home/presentation/pages/home_page/views/chosen_masters_card.dart';
 import 'package:markab/features/home/presentation/pages/home_page/views/home_app_bar.dart';
 import 'package:markab/features/home/presentation/pages/home_page/views/home_header.dart';
-
-import '../penalties_page/penalties_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
