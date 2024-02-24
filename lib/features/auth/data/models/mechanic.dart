@@ -11,6 +11,7 @@ class Mechanic extends MechanicEntity {
     required super.about,
     required super.address,
     required super.image,
+    required super.phoneNumbers,
     super.skills,
   });
 
@@ -24,6 +25,8 @@ class Mechanic extends MechanicEntity {
     final about = json["about"] as String;
     final address = json["address"] as String;
     final image = json["image"] as String?;
+    final phoneNumbers =
+        (json["phoneNumbers"] as List).map((e) => e as String).toList();
 
     return Mechanic(
         userId: userId,
@@ -33,6 +36,7 @@ class Mechanic extends MechanicEntity {
         grade: grade,
         about: about,
         address: address,
-        image: image);
+        image: image,
+        phoneNumbers: phoneNumbers);
   }
 }

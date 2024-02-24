@@ -10,16 +10,18 @@ class MechanicEntity {
   List<String> skills;
   final String address;
   final String? image;
+  List<String> phoneNumbers;
 
-  MechanicEntity({
-    required this.userId,
-    required this.location,
-    required this.id,
-    List<String> skills = const [],
-    required this.name,
-    required this.grade,
-    required this.about,
-    required this.address,
-    required this.image,
-  }) : skills = skills.toSet().toList();
+  MechanicEntity(
+      {required this.userId,
+      required this.location,
+      required this.id,
+      List<String> skills = const [],
+      required this.name,
+      required this.grade,
+      required this.about,
+      required this.address,
+      required this.image,
+      required this.phoneNumbers})
+      : skills = skills.toSet().toList();
 }

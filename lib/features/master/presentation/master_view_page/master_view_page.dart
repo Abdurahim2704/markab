@@ -71,6 +71,10 @@ class _MasterViewPageState extends State<MasterViewPage> {
     grade: 3,
     about: "Men yaxshi dasturchiman hozir TATUda o'qiyman",
     address: "Mening adresim Yunusobod 9",
+    phoneNumbers: [
+      "+998905486416",
+      "+998930806416",
+    ],
     skills: [
       "dasturlash",
       "payvandalsh",
@@ -91,7 +95,7 @@ class _MasterViewPageState extends State<MasterViewPage> {
       "fizika",
       "matematika",
     ],
-    image: "",
+    image: "https://via.placeholder.com/126x126",
   );
   @override
   Widget build(BuildContext context) {
