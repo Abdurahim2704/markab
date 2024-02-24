@@ -253,11 +253,13 @@ class MasterDetailPage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         ColorButton(
+                          text: "Qo'ng'iroq",
                           color: CustomColors.cardGreen,
                           icon: CustomIcons.phoneIcon,
                           onTap: () {},
                         ),
                         ColorButton(
+                          text: "Borish",
                           color: CustomColors.cardBlue,
                           icon: CustomIcons.directionIcon,
                           onTap: () {},

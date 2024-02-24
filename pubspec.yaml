@@ -20,6 +20,12 @@ dependencies:
   flutter_bloc: ^8.1.3
   go_router: ^13.0.0
   shared_preferences: ^2.2.2
+  dio: ^5.4.0
+  yandex_mapkit: ^3.4.0
+  geolocator: ^10.1.0
+  toggle_switch: ^2.1.0
+  freezed: ^2.4.7
+  permission_handler: ^11.3.0
 
 dev_dependencies:
   flutter_test:

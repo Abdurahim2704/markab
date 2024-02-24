@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:markab/config/core/constants/colors.dart';
+import 'package:markab/config/core/routes/route.dart';
 
 import '../../notification_page/notification_page.dart';
 import '../../settings_page/settings_page.dart';
@@ -24,12 +26,7 @@ class HomeAppBar extends StatelessWidget {
               Radius.circular(20),
             ),
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const SettingsScreen(),
-                ),
-              );
+              context.pushNamed(Routes.settingsPage);
             },
             child: SvgPicture.asset(
               "assets/icons/ic_settings.svg",
@@ -46,7 +43,6 @@ class HomeAppBar extends StatelessWidget {
             style: TextStyle(
               fontSize: 10.sp,
               fontWeight: FontWeight.w500,
-              fontFamily: "Proxima Nova",
               color: CustomColors.oxFFFCFCFC,
             ),
           ),

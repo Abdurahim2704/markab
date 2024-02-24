@@ -10,7 +10,6 @@ class AuthImpl extends AuthRepository {
         phoneNumber: phoneNumber,
         carNumber: carNumber);
   }
-
   @override
   Future<UserEntity> signUp(
       String phoneNumber, String carNumber, Role role) async {

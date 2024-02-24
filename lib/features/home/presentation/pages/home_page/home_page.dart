@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:markab/config/core/constants/colors.dart';
+import 'package:markab/config/core/routes/route.dart';
 import 'package:markab/config/theme/theme.dart';
 import 'package:markab/features/home/presentation/pages/documents_page.dart';
 import 'package:markab/features/home/presentation/pages/home_page/views/build_home_sections.dart';
@@ -47,12 +49,7 @@ class HomePage extends StatelessWidget {
                         iconPath: "assets/icons/ic_car_document.svg",
                         text: "Xujjatlar",
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const DocumentsPage(),
-                            ),
-                          );
+                          context.pushNamed(Routes.documentsPage);
                         },
                       ),
                       buildHomeSections(
@@ -64,18 +61,15 @@ class HomePage extends StatelessWidget {
                         iconPath: "assets/icons/ic_penalty.svg",
                         text: "Jarima",
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const PenaltiesScreen(),
-                            ),
-                          );
+                          context.pushNamed(Routes.penaltyPage);
                         },
                       ),
                       buildHomeSections(
                         iconPath: "assets/icons/ic_navigator.svg",
                         text: "Navigator",
-                        onTap: () {},
+                        onTap: () {
+                          context.pushNamed(Routes.mapPage);
+                        },
                       ),
                     ],
                   ),

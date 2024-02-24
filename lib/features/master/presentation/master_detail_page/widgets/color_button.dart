@@ -6,11 +6,14 @@ class ColorButton extends StatelessWidget {
   final Color color;
   final String icon;
   final void Function() onTap;
-  const ColorButton(
-      {super.key,
-      required this.color,
-      required this.icon,
-      required this.onTap});
+  final String text;
+  const ColorButton({
+    super.key,
+    required this.color,
+    required this.icon,
+    required this.onTap,
+    required this.text,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +30,7 @@ class ColorButton extends StatelessWidget {
             width: 10.w,
           ),
           Text(
-            'Qo’ng’iroq',
+            text,
             style: TextStyle(
               color: Colors.white,
               fontSize: 14.sp,

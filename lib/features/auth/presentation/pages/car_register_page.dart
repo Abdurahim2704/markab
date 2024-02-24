@@ -13,7 +13,7 @@ class CarRegisterPage extends StatefulWidget {
 }
 
 class _CarRegisterPageState extends State<CarRegisterPage> {
-  final carNumberMask = MaskTextInputFormatter(mask: "##   @ ### @@ ", filter: {
+  final carNumberMask = MaskTextInputFormatter(mask: "##  @###@@ ", filter: {
     "@": RegExp(r"[a-zA-Z]"),
     "#": RegExp(r"[0-9]"),
   });
@@ -60,12 +60,11 @@ class _CarRegisterPageState extends State<CarRegisterPage> {
                       controller: carNumberController,
                       textAlignVertical: TextAlignVertical.center,
                       style: TextStyle(
-                        color: CustomColors.oxFF000000,
-                        fontSize: 29.sp,
-                        fontFamily: 'Proxima Nova',
-                        fontWeight: FontWeight.w400,
-                        height: 1,
-                      ),
+                          color: CustomColors.oxFF000000,
+                          fontSize: 29.sp,
+                          fontFamily: 'Proxima Nova',
+                          fontWeight: FontWeight.w400,
+                          height: 1),
                       inputFormatters: [
                         carNumberMask,
                       ],

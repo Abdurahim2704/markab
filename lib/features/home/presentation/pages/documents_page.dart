@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:markab/config/core/constants/colors.dart';
 import 'package:markab/shared/widgets/appbar_title.dart';
 
@@ -132,7 +133,9 @@ Widget buildOption(
                           color:
                               isEarlier ? Colors.red : CustomColors.oxFF2F80ED,
                           borderRadius: BorderRadius.only(
-                            topRight: isEarlier == false ? const Radius.circular(5) : const Radius.circular(0),
+                            topRight: isEarlier == false
+                                ? const Radius.circular(5)
+                                : const Radius.circular(0),
                             bottomRight: const Radius.circular(5),
                             bottomLeft: const Radius.circular(5),
                           ),
@@ -223,7 +226,7 @@ class _DocumentsPageState extends State<DocumentsPage> {
         scrolledUnderElevation: 0,
         leading: IconButton(
           onPressed: () {
-            Navigator.pop(context);
+            GoRouter.of(context).pop();
           },
           icon: SvgPicture.asset(
             "assets/icons/ic_arrow_back.svg",
@@ -236,7 +239,8 @@ class _DocumentsPageState extends State<DocumentsPage> {
       body: ListView.separated(
         itemCount: datas.length,
         separatorBuilder: (context, index) => SizedBox(height: 10.sp),
-        padding: EdgeInsets.only(left: 12.sp, right: 12.sp, top: 10.h, bottom: 20.h),
+        padding:
+            EdgeInsets.only(left: 12.sp, right: 12.sp, top: 10.h, bottom: 20.h),
         itemBuilder: (context, index) {
           final data = datas[index];
           return buildOption(
