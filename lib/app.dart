@@ -3,12 +3,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:markab/config/core/routes/app_routes.dart';
 import 'package:markab/config/theme/theme.dart';
-import 'package:markab/features/auth/data/services/dio/dio_setting.dart';
-import 'package:markab/features/auth/domain/repository/location_repository.dart';
+import 'package:markab/features/map/domain/repository/location_repository.dart';
 import 'package:markab/features/auth/presentation/bloc/auth/auth_bloc.dart';
-import 'package:markab/features/auth/presentation/bloc/location/location_bloc.dart';
 
 import 'features/card/presentation/bloc/card_bloc/card_bloc.dart';
+import 'features/map/data/services/dio/dio_setting.dart';
+import 'features/map/presentation/bloc/location/location_bloc.dart';
 
 class MarkabApp extends StatelessWidget {
   const MarkabApp({super.key});

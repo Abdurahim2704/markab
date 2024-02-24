@@ -247,16 +247,14 @@
 //   }
 // }
 
-
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:markab/features/auth/data/services/map_services/yandex_map_service.dart';
-import 'package:markab/features/auth/presentation/pages/map_page/settings_screen.dart';
+import 'package:markab/features/map/presentation/pages/settings_screen.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
 
-
+import '../../data/services/map_services/yandex_map_service.dart';
 import 'clusterized_icon_pointer.dart';
 
 class MapScreen extends StatefulWidget {
@@ -428,7 +426,7 @@ class _MapScreenState extends State<MapScreen> {
   /// разрешения - выводит сообщение
   Future<void> _initLocationLayer() async {
     final locationPermissionIsGranted =
-    await Permission.location.request().isGranted;
+        await Permission.location.request().isGranted;
 
     if (locationPermissionIsGranted) {
       await _mapController.toggleUserLayer(visible: true);
@@ -455,8 +453,8 @@ class _MapScreenState extends State<MapScreen> {
             mapId: MapObjectId('route $element'),
             polyline: Polyline(points: element.geometry),
             strokeColor:
-            // генерируем случайный цвет для каждого маршрута
-            Colors.primaries[Random().nextInt(Colors.primaries.length)],
+                // генерируем случайный цвет для каждого маршрута
+                Colors.primaries[Random().nextInt(Colors.primaries.length)],
             strokeWidth: 3,
           ),
         );
@@ -468,11 +466,11 @@ class _MapScreenState extends State<MapScreen> {
 /// Метод для генерации точек на карте
 List<AppLatLong> _getMapPoints() {
   return const [
-    AppLatLong( lat: 55.755864, long: 37.617698),
-    AppLatLong( lat: 51.507351, long: -0.127696),
-    AppLatLong( lat: 41.887064, long: 12.504809),
-    AppLatLong( lat: 48.856663, long: 2.351556),
-    AppLatLong( lat: 59.347360, long: 18.341573),
+    AppLatLong(lat: 55.755864, long: 37.617698),
+    AppLatLong(lat: 51.507351, long: -0.127696),
+    AppLatLong(lat: 41.887064, long: 12.504809),
+    AppLatLong(lat: 48.856663, long: 2.351556),
+    AppLatLong(lat: 59.347360, long: 18.341573),
   ];
 }
 
@@ -481,57 +479,57 @@ List<PlacemarkMapObject> _getPlacemarkObjects(BuildContext context) {
   return _getMapPoints()
       .map(
         (point) => PlacemarkMapObject(
-      mapId: MapObjectId('MapObject $point'),
-      point: Point(latitude: point.lat, longitude: point.long),
-      opacity: 1,
-      icon: PlacemarkIcon.single(
-        PlacemarkIconStyle(
-          image: BitmapDescriptor.fromAssetImage(
-            'assets/icons/map_point.png',
+          mapId: MapObjectId('MapObject $point'),
+          point: Point(latitude: point.lat, longitude: point.long),
+          opacity: 1,
+          icon: PlacemarkIcon.single(
+            PlacemarkIconStyle(
+              image: BitmapDescriptor.fromAssetImage(
+                'assets/icons/map_point.png',
+              ),
+              scale: 2,
+            ),
           ),
-          scale: 2,
+          onTap: (_, __) => showModalBottomSheet(
+            context: context,
+            builder: (context) => _ModalBodyView(
+              point: point,
+            ),
+          ),
         ),
-      ),
-      onTap: (_, __) => showModalBottomSheet(
-        context: context,
-        builder: (context) => _ModalBodyView(
-          point: point,
-        ),
-      ),
-    ),
-  )
+      )
       .toList();
 }
 
 /// Метод для генерации точек начала и конца маршрута
 List<PlacemarkMapObject> _getDrivingPlacemarks(
-    BuildContext context, {
-      required List<Point> drivingPoints,
-    }) {
+  BuildContext context, {
+  required List<Point> drivingPoints,
+}) {
   return drivingPoints
       .map(
         (point) => PlacemarkMapObject(
-      mapId: MapObjectId('MapObject $point'),
-      point: Point(latitude: point.latitude, longitude: point.longitude),
-      opacity: 1,
-      icon: PlacemarkIcon.single(
-        PlacemarkIconStyle(
-          image: BitmapDescriptor.fromAssetImage(
-            'assets/icons/car_point.png',
+          mapId: MapObjectId('MapObject $point'),
+          point: Point(latitude: point.latitude, longitude: point.longitude),
+          opacity: 1,
+          icon: PlacemarkIcon.single(
+            PlacemarkIconStyle(
+              image: BitmapDescriptor.fromAssetImage(
+                'assets/icons/car_point.png',
+              ),
+              scale: 2,
+            ),
           ),
-          scale: 2,
         ),
-      ),
-    ),
-  )
+      )
       .toList();
 }
 
 /// Метод для генерации объекта выделенной зоны на карте
 PolygonMapObject _getPolygonMapObject(
-    BuildContext context, {
-      required List<Point> points,
-    }) {
+  BuildContext context, {
+  required List<Point> points,
+}) {
   return PolygonMapObject(
     mapId: const MapObjectId('polygon map object'),
     polygon: Polygon(

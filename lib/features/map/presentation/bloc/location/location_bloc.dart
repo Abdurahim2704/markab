@@ -1,10 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
-import 'package:markab/features/auth/data/services/map_services/yandex_map_service.dart';
-import 'package:markab/features/auth/domain/repository/location_repository.dart';
+import 'package:markab/features/map/domain/repository/location_repository.dart';
 import 'package:meta/meta.dart';
 
 import '../../../data/models/location_model.dart';
+import '../../../data/services/map_services/yandex_map_service.dart';
 
 part 'location_event.dart';
 
