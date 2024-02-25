@@ -3,14 +3,12 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:markab/features/map/presentation/pages/settings_screen.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:yandex_mapkit/yandex_mapkit.dart';
 
 import '../../../auth/presentation/widgets/menu_container.dart';
 import '../../data/services/map_services/yandex_map_service.dart';
 import '../bloc/location/location_bloc.dart';
-import 'clusterized_icon_pointer.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -25,8 +23,7 @@ class _MapScreenState extends State<MapScreen> {
   final mapControllerCompleter = Completer<YandexMapController>();
   TextEditingController controller = TextEditingController();
 
-  /// Значение текущего масштаба карты
-  var _mapZoom = 0.0;
+
 
   /// Данные о местоположении пользователя
   CameraPosition? _userLocation;
@@ -172,6 +169,7 @@ class _MapScreenState extends State<MapScreen> {
         alignment: Alignment.topCenter,
         children: [
           YandexMap(
+            mode2DEnabled: true,
             nightModeEnabled: false,
             onMapCreated: (controller) async {
               _mapController = controller;
@@ -179,7 +177,7 @@ class _MapScreenState extends State<MapScreen> {
             },
             onMapTap: (argument) {
               setState(() {
-                // добавляем точку маршрута на карте, если еще не выбраны две точки
+
                 if (_drivingPointsList.length < 2) {
                   _drivingPointsList.add(argument);
                 } else {
@@ -192,9 +190,6 @@ class _MapScreenState extends State<MapScreen> {
                   _drivingMapLines = [];
                   _drivingResultWithSession = null;
                 }
-
-                // когда выбраны точки начала и конца,
-                // получаем данные предложенных маршрутов
                 if (_drivingPointsList.length == 2) {
                   _drivingResultWithSession = _getDrivingResultWithSession(
                     startPoint: _drivingPointsList.first,
@@ -216,6 +211,7 @@ class _MapScreenState extends State<MapScreen> {
               ..._getDrivingPlacemarks(context,
                   drivingPoints: _drivingPointsList),
               ..._drivingMapLines,
+              ..._getPlacemarkObjects(context)
             ],
             onUserLocationAdded: (view) async {
               // получаем местоположение пользователя
@@ -300,43 +296,7 @@ class _MapScreenState extends State<MapScreen> {
     );
   }
 
-  /// Метод для получения коллекции кластеризованных маркеров
-  ClusterizedPlacemarkCollection _getClusterizedCollection({
-    required List<PlacemarkMapObject> placemarks,
-  }) {
-    return ClusterizedPlacemarkCollection(
-        mapId: const MapObjectId('clusterized-1'),
-        placemarks: placemarks,
-        radius: 50,
-        minZoom: 15,
-        onClusterAdded: (self, cluster) async {
-          return cluster.copyWith(
-            appearance: cluster.appearance.copyWith(
-              opacity: 1.0,
-              icon: PlacemarkIcon.single(
-                PlacemarkIconStyle(
-                  image: BitmapDescriptor.fromBytes(
-                    await ClusterIconPainter(cluster.size)
-                        .getClusterIconBytes(),
-                  ),
-                ),
-              ),
-            ),
-          );
-        },
-        onClusterTap: (self, cluster) async {
-          await _mapController.moveCamera(
-            animation: const MapAnimation(
-                type: MapAnimationType.linear, duration: 0.3),
-            CameraUpdate.newCameraPosition(
-              CameraPosition(
-                target: cluster.placemarks.first.point,
-                zoom: _mapZoom + 1,
-              ),
-            ),
-          );
-        });
-  }
+
 
   /// Метод, который включает слой местоположения пользователя на карте
   /// Выполняется проверка на доступ к местоположению, в случае отсутствия
@@ -384,7 +344,7 @@ class _MapScreenState extends State<MapScreen> {
 List<AppLatLong> _getMapPoints() {
   return const [
     AppLatLong(lat: 55.755864, long: 37.617698),
-    AppLatLong(lat: 51.507351, long: -0.127696),
+    AppLatLong(lat: 42.507351, long: 69),
     AppLatLong(lat: 41.887064, long: 12.504809),
     AppLatLong(lat: 48.856663, long: 2.351556),
     AppLatLong(lat: 59.347360, long: 18.341573),
@@ -396,13 +356,14 @@ List<PlacemarkMapObject> _getPlacemarkObjects(BuildContext context) {
   return _getMapPoints()
       .map(
         (point) => PlacemarkMapObject(
-          mapId: MapObjectId('MapObject $point'),
+          consumeTapEvents: true,
+          mapId: MapObjectId('MapObject ${point.lat}-${point.long}'),
           point: Point(latitude: point.lat, longitude: point.long),
           opacity: 1,
           icon: PlacemarkIcon.single(
             PlacemarkIconStyle(
               image: BitmapDescriptor.fromAssetImage(
-                'assets/icons/map_point.png',
+                'assets/images/ic_locate.png',
               ),
               scale: 2,
             ),
@@ -471,7 +432,8 @@ DrivingResultWithSession _getDrivingResultWithSession({
 
 /// Содержимое модального окна с информацией о точке на карте
 class _ModalBodyView extends StatelessWidget {
-  const _ModalBodyView({required this.point});
+
+   const _ModalBodyView({required this.point});
 
   final AppLatLong point;
 

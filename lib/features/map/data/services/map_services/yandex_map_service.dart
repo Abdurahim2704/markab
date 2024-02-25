@@ -11,10 +11,12 @@ abstract class AppLocation {
 class AppLatLong {
   final double lat;
   final double long;
+  final String? name;
 
   const AppLatLong({
     required this.lat,
     required this.long,
+    this.name,
   });
 }
 
