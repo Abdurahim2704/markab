@@ -10,7 +10,7 @@ class CarNumber extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 133.w,
+      width: 140.w,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.all(
           Radius.circular(4.r),
