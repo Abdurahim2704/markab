@@ -10,11 +10,10 @@ class CarNumber extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 25.sp,
-      width: 133.sp,
+      width: 133.w,
       decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(
-          Radius.circular(4),
+        borderRadius: BorderRadius.all(
+          Radius.circular(4.r),
         ),
         border: Border.all(
           color: CustomColors.oxFFB2D3FF,
@@ -34,13 +33,13 @@ class CarNumber extends StatelessWidget {
               color: CustomColors.oxFF1E1E1E,
             ),
           ),
-          SizedBox(width: 3.sp),
+          SizedBox(width: 3.w),
           Container(
-            height: 25.sp,
-            width: 2.5,
+            height: 25.h,
+            width: 2.5.w,
             color: CustomColors.oxFFB2D3FF,
           ),
-          SizedBox(width: 10.sp),
+          SizedBox(width: 10.w),
           Text(
             "A 111 AA",
             style: TextStyle(
@@ -50,7 +49,7 @@ class CarNumber extends StatelessWidget {
               color: CustomColors.oxFF1E1E1E,
             ),
           ),
-          SizedBox(width: 10.sp),
+          SizedBox(width: 10.w),
           Padding(
             padding: EdgeInsets.only(top: 3.0.sp),
             child: Column(
@@ -60,10 +59,10 @@ class CarNumber extends StatelessWidget {
                   image: const AssetImage(
                     "assets/images/flag.png",
                   ),
-                  height: 6.sp,
-                  width: 12.sp,
+                  height: 6.h,
+                  width: 12.w,
                 ),
-                SizedBox(height: 1.sp),
+                SizedBox(height: 1.h),
                 Text(
                   "UZ",
                   style: TextStyle(

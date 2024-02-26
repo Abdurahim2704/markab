@@ -25,11 +25,10 @@ class ChosenMastersCard extends StatelessWidget {
             ));
       },
       child: Container(
-        width: 85.sp,
-        height: 105.sp,
+        width: 85.w,
         padding: EdgeInsets.symmetric(
-          vertical: 10.sp,
-          horizontal: 12.sp,
+          vertical: 10.h,
+          horizontal: 12.w,
         ),
         decoration: BoxDecoration(
           color: CustomColors.oxFFFFFFFF,
@@ -43,10 +42,10 @@ class ChosenMastersCard extends StatelessWidget {
               image: AssetImage(
                 masterImagePath,
               ),
-              width: 46.sp,
-              height: 46.sp,
+              width: 46.w,
+              height: 46.h,
             ),
-            SizedBox(height: 5.sp),
+            SizedBox(height: 5.h),
             Text(
               masterName,
               style: TextStyle(
@@ -61,37 +60,37 @@ class ChosenMastersCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Image(
-                  height: 10.sp,
-                  width: 10.sp,
+                  height: 10.h,
+                  width: 10.w,
                   image: const AssetImage(
                     "assets/icons/ic_star.png",
                   ),
                 ),
                 Image(
-                  height: 10.sp,
-                  width: 10.sp,
+                  height: 10.h,
+                  width: 10.w,
                   image: const AssetImage(
                     "assets/icons/ic_star.png",
                   ),
                 ),
                 Image(
-                  height: 10.sp,
-                  width: 10.sp,
+                  height: 10.h,
+                  width: 10.w,
                   image: const AssetImage(
                     "assets/icons/ic_star.png",
                   ),
                 ),
                 Image(
-                  height: 10.sp,
-                  width: 10.sp,
+                  height: 10.h,
+                  width: 10.w,
                   image: const AssetImage(
                     "assets/icons/ic_star.png",
                   ),
                   color: CustomColors.oxFFA3BFF3,
                 ),
                 Image(
-                  height: 10.sp,
-                  width: 10.sp,
+                  height: 10.h,
+                  width: 10.w,
                   image: const AssetImage(
                     "assets/icons/ic_star.png",
                   ),

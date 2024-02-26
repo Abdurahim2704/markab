@@ -35,6 +35,8 @@ class CreditCardWidget extends StatelessWidget {
                     ),
                   ),
                   RichText(
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                     text: TextSpan(
                       style: const TextStyle(
                         fontWeight: FontWeight.w700,

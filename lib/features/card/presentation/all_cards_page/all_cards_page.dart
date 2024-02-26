@@ -7,52 +7,7 @@ import 'package:markab/features/card/presentation/all_cards_page/widgets/card_wi
 import 'package:markab/shared/widgets/appbar_title.dart';
 
 import '../../../../config/theme/theme.dart';
-import '../../../../locator.dart';
-import '../../../../observer.dart';
-import '../../../auth/presentation/bloc/auth/auth_bloc.dart';
 import '../bloc/card_bloc/card_bloc.dart';
-
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await setUp();
-  Bloc.observer = MyGlobalObserver();
-
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => AuthBloc(),
-        ),
-        BlocProvider(
-          create: (context) => CardBloc()
-            ..add(
-              const SaveCardEvent(
-                name: "name",
-                expireDate: "09/12",
-                cardNumber: "fdghjkgadsk",
-              ),
-            )
-            ..add(const GetLocalCardEvent()),
-        ),
-      ],
-      child: ScreenUtilInit(
-        designSize: const Size(294, 636),
-        child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: AppTheme.lightTheme,
-          home: const AllCardsPage(),
-        ),
-      ),
-    );
-  }
-}
 
 class AllCardsPage extends StatelessWidget {
   const AllCardsPage({super.key});

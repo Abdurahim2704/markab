@@ -22,8 +22,8 @@ class MarkabApp extends StatelessWidget {
             ..add(
               const GetCardEvent(
                 name: "name",
-                expireDate: "expireDate",
-                cardNumber: "cardNumber",
+                expireDate: "10/24",
+                cardNumber: "8600897876545634",
               ),
             ),
         ),

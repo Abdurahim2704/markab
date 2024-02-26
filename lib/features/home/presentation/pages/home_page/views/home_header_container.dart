@@ -13,11 +13,10 @@ class HomeHeaderContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 155.sp,
-      width: 266.sp,
+      width: 266.w,
       padding: EdgeInsets.symmetric(
-        horizontal: 5.0.sp,
-        vertical: 5.0.sp,
+        horizontal: 5.0.w,
+        vertical: 5.0.h,
       ),
       foregroundDecoration: BoxDecoration(
         borderRadius: const BorderRadius.all(
@@ -59,7 +58,6 @@ class HomeHeaderContainer extends StatelessWidget {
                   fontSize: 17.sp,
                   fontWeight: FontWeight.w700,
                   color: CustomColors.oxFF366AD2,
-                  fontFamily: "Proxima Nova",
                 ),
               ),
               IconButton(
@@ -72,20 +70,20 @@ class HomeHeaderContainer extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 10),
+          SizedBox(height: 10.h),
 
           /// #Car Number
           const CarNumber(),
 
-          const SizedBox(height: 15),
+          SizedBox(height: 10.h),
 
           /// #Car Image
           Image(
             image: const AssetImage(
               "assets/images/img_gentra.png",
             ),
-            height: 65.sp,
-            width: 175.sp,
+            height: 60.h,
+            width: 170.h,
           ),
         ],
       ),

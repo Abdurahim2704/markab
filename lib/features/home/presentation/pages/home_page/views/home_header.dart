@@ -22,11 +22,11 @@ class _HomeScreenHeaderState extends State<HomeScreenHeader> {
     return Column(
       children: [
         Container(
-          height: 165.sp,
-          width: 266.sp,
+          height: 190.h,
+          width: 266.w,
           padding: EdgeInsets.symmetric(
-            horizontal: 5.0.sp,
-            vertical: 5.0.sp,
+            horizontal: 5.0.h,
+            vertical: 5.0.h,
           ),
           child: PageView.builder(
             clipBehavior: Clip.antiAlias,
@@ -46,7 +46,7 @@ class _HomeScreenHeaderState extends State<HomeScreenHeader> {
             },
           ),
         ),
-        SizedBox(height: 15.sp),
+        SizedBox(height: 15.h),
         HeaderPageIndicator(currentPage: _currentPage),
       ],
     );

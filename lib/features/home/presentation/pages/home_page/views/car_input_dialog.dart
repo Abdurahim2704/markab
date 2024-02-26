@@ -18,7 +18,7 @@ void showCarInputDialog(BuildContext context) {
         ),
       ),
       content: SizedBox(
-        width: 250.w,
+        width: 200.w,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.min,

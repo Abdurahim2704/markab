@@ -39,13 +39,13 @@ class MasterDetailPage extends StatelessWidget {
       body: SizedBox.expand(
         child: Container(
           decoration: const BoxDecoration(gradient: AppTheme.scaffoldGradient),
-          child: Column(
-            children: [
-              SizedBox(
-                height: 80.h,
-              ),
-              Expanded(
-                child: Container(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 80.h,
+                ),
+                Container(
                   padding:
                       EdgeInsets.symmetric(horizontal: 14.sp, vertical: 12.sp),
                   decoration: BoxDecoration(
@@ -236,43 +236,44 @@ class MasterDetailPage extends StatelessWidget {
                     ],
                   ),
                 ),
-              ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 8.h),
-                decoration:
-                    const BoxDecoration(color: Colors.white, boxShadow: [
-                  BoxShadow(
-                      color: Colors.black12,
-                      offset: Offset(-5, 0),
-                      spreadRadius: 1,
-                      blurRadius: 20)
-                ]),
-                child: Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        ColorButton(
-                          text: "Qo'ng'iroq",
-                          color: CustomColors.cardGreen,
-                          icon: CustomIcons.phoneIcon,
-                          onTap: () {},
-                        ),
-                        ColorButton(
-                          text: "Borish",
-                          color: CustomColors.cardBlue,
-                          icon: CustomIcons.directionIcon,
-                          onTap: () {},
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10.sp,
-                    )
-                  ],
+                Container(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 14.w, vertical: 8.h),
+                  decoration:
+                      const BoxDecoration(color: Colors.white, boxShadow: [
+                    BoxShadow(
+                        color: Colors.black12,
+                        offset: Offset(-5, 0),
+                        spreadRadius: 1,
+                        blurRadius: 20)
+                  ]),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          ColorButton(
+                            text: "Qo'ng'iroq",
+                            color: CustomColors.cardGreen,
+                            icon: CustomIcons.phoneIcon,
+                            onTap: () {},
+                          ),
+                          ColorButton(
+                            text: "Borish",
+                            color: CustomColors.cardBlue,
+                            icon: CustomIcons.directionIcon,
+                            onTap: () {},
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10.sp,
+                      )
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

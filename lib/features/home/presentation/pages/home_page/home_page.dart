@@ -21,99 +21,103 @@ class HomePage extends StatelessWidget {
           decoration: const BoxDecoration(
             gradient: AppTheme.scaffoldGradient,
           ),
-          child: SafeArea(
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 12.0.sp,
-                vertical: 5.sp,
-              ),
-              child: Column(
-                children: [
-                  /// #AppBar
-                  const HomeAppBar(),
-                  SizedBox(height: 25.sp),
+          child: SingleChildScrollView(
+            child: SafeArea(
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 12.w,
+                  vertical: 5.h,
+                ),
+                child: Column(
+                  children: [
+                    /// #AppBar
+                    const HomeAppBar(),
+                    SizedBox(height: 25.h),
 
-                  /// #Home Header
-                  const HomeScreenHeader(),
+                    /// #Home Header
+                    const HomeScreenHeader(),
 
-                  SizedBox(height: 28.sp),
+                    SizedBox(height: 28.h),
 
-                  /// #Home Sections
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      buildHomeSections(
-                        iconPath: "assets/icons/ic_car_document.svg",
-                        text: "Xujjatlar",
-                        onTap: () {
-                          context.pushNamed(Routes.documentsPage);
-                        },
-                      ),
-                      buildHomeSections(
-                        iconPath: "assets/icons/ic_document.svg",
-                        text: "Hisobot",
-                        onTap: () {},
-                      ),
-                      buildHomeSections(
-                        iconPath: "assets/icons/ic_penalty.svg",
-                        text: "Jarima",
-                        onTap: () {
-                          context.pushNamed(Routes.penaltyPage);
-                        },
-                      ),
-                      buildHomeSections(
-                        iconPath: "assets/icons/ic_navigator.svg",
-                        text: "Navigator",
-                        onTap: () {
-                          context.pushNamed(Routes.mapPage);
-                        },
-                      ),
-                    ],
-                  ),
-
-                  const SizedBox(height: 20),
-
-                  Row(
-                    children: [
-                      Text(
-                        "Tanlangan Ustalar",
-                        style: TextStyle(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w700,
-                          fontFamily: "Proxima Nova",
-                          color: CustomColors.oxFF4B4B4B,
+                    /// #Home Sections
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        buildHomeSections(
+                          iconPath: "assets/icons/ic_car_document.svg",
+                          text: "Xujjatlar",
+                          onTap: () {
+                            context.pushNamed(Routes.documentsPage);
+                          },
                         ),
-                      ),
-                      const SizedBox(width: 10),
-                      IconButton(
-                        onPressed: () {},
-                        icon: SvgPicture.asset(
-                          "assets/icons/ic_arrow_forward.svg",
+                        buildHomeSections(
+                          iconPath: "assets/icons/ic_document.svg",
+                          text: "Hisobot",
+                          onTap: () {},
                         ),
-                      ),
-                    ],
-                  ),
+                        buildHomeSections(
+                          iconPath: "assets/icons/ic_penalty.svg",
+                          text: "Jarima",
+                          onTap: () {
+                            context.pushNamed(Routes.penaltyPage);
+                          },
+                        ),
+                        buildHomeSections(
+                          iconPath: "assets/icons/ic_navigator.svg",
+                          text: "Navigator",
+                          onTap: () {
+                            context.pushNamed(Routes.mapPage);
+                          },
+                        ),
+                      ],
+                    ),
 
-                  /// #Chosen Master's CardTile
-                  SizedBox(height: 15.sp),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ChosenMastersCard(
-                        masterName: "Muslim S.",
-                        masterImagePath: "assets/images/img_master_muslim.png",
-                      ),
-                      ChosenMastersCard(
-                        masterName: "Aziz",
-                        masterImagePath: "assets/images/img_master_aziz.png",
-                      ),
-                      ChosenMastersCard(
-                        masterName: "Sharif",
-                        masterImagePath: "assets/images/img_master_sharif.png",
-                      ),
-                    ],
-                  ),
-                ],
+                    SizedBox(height: 20.h),
+
+                    Row(
+                      children: [
+                        Text(
+                          "Tanlangan Ustalar",
+                          style: TextStyle(
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w700,
+                            fontFamily: "Proxima Nova",
+                            color: CustomColors.oxFF4B4B4B,
+                          ),
+                        ),
+                        SizedBox(width: 10.w),
+                        IconButton(
+                          onPressed: () {},
+                          icon: SvgPicture.asset(
+                            "assets/icons/ic_arrow_forward.svg",
+                          ),
+                        ),
+                      ],
+                    ),
+
+                    /// #Chosen Master's CardTile
+                    SizedBox(height: 15.h),
+                    const Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ChosenMastersCard(
+                          masterName: "Muslim S.",
+                          masterImagePath:
+                              "assets/images/img_master_muslim.png",
+                        ),
+                        ChosenMastersCard(
+                          masterName: "Aziz",
+                          masterImagePath: "assets/images/img_master_aziz.png",
+                        ),
+                        ChosenMastersCard(
+                          masterName: "Sharif",
+                          masterImagePath:
+                              "assets/images/img_master_sharif.png",
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

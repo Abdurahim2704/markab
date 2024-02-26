@@ -13,8 +13,8 @@ Widget buildHomeSections({
       InkWell(
         onTap: onTap,
         child: Container(
-          height: 40.sp,
-          width: 40.sp,
+          height: 40.h,
+          width: 40.w,
           padding: EdgeInsets.all(8.sp),
           decoration: BoxDecoration(
             color: CustomColors.oxFFFFFFFF.withOpacity(0.6),

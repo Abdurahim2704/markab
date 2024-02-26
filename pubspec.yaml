@@ -26,6 +26,7 @@ dependencies:
   toggle_switch: ^2.1.0
   freezed: ^2.4.7
   permission_handler: ^11.3.0
+  device_preview: ^1.1.0
 
 dev_dependencies:
   flutter_test:

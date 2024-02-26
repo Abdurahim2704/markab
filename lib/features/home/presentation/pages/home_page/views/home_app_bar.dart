@@ -45,14 +45,14 @@ class HomeAppBar extends StatelessWidget {
               color: CustomColors.oxFFFCFCFC,
             ),
           ),
-          largeSize: 18,
+          largeSize: 14.w,
           alignment: AlignmentDirectional.topEnd,
           child: Material(
             color: Colors.transparent,
             child: InkWell(
               splashColor: Colors.blue.shade100,
-              borderRadius: const BorderRadius.all(
-                Radius.circular(20),
+              borderRadius: BorderRadius.all(
+                Radius.circular(20.r),
               ),
               onTap: () {
                 Navigator.push(
@@ -64,8 +64,8 @@ class HomeAppBar extends StatelessWidget {
               },
               child: SvgPicture.asset(
                 "assets/icons/ic_bell.svg",
-                height: 28,
-                width: 28,
+                height: 20.sp,
+                width: 20.sp,
               ),
             ),
           ),

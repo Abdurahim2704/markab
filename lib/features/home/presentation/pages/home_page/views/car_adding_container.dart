@@ -19,12 +19,12 @@ class _CarrAddContainerState extends State<CarrAddContainer> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(
-        horizontal: 5.0.sp,
-        vertical: 5.0.sp,
+        horizontal: 5.0.w,
+        vertical: 5.0.h,
       ),
       foregroundDecoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(
-          Radius.circular(10),
+        borderRadius: BorderRadius.all(
+          Radius.circular(10.r),
         ),
         gradient: LinearGradient(
           end: Alignment.topLeft,
@@ -37,8 +37,8 @@ class _CarrAddContainerState extends State<CarrAddContainer> {
         ),
       ),
       decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(
-          Radius.circular(10),
+        borderRadius: BorderRadius.all(
+          Radius.circular(10.r),
         ),
         gradient: LinearGradient(
           begin: Alignment.topCenter,
@@ -51,8 +51,8 @@ class _CarrAddContainerState extends State<CarrAddContainer> {
         ),
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(height: 30.sp),
           CircleAvatar(
             backgroundColor: Colors.white,
             radius: 28.sp,
@@ -68,7 +68,9 @@ class _CarrAddContainerState extends State<CarrAddContainer> {
               ),
             ),
           ),
-          SizedBox(height: 10.h),
+          SizedBox(
+            height: 10.h,
+          ),
           Text(
             "Mashina qo’shish",
             style: TextStyle(
