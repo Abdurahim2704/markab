@@ -22,7 +22,8 @@ class MarkabApp extends StatelessWidget {
           create: (context) => DioSettings(),
         ),
         RepositoryProvider(
-          create: (context) => LocationRepository(dio: RepositoryProvider.of<DioSettings>(context).dio),
+          create: (context) => LocationRepository(
+              dio: RepositoryProvider.of<DioSettings>(context).dio),
         ),
       ],
       child: MultiBlocProvider(
@@ -31,18 +32,19 @@ class MarkabApp extends StatelessWidget {
             create: (context) => AuthBloc(),
           ),
           BlocProvider(
-            create: (context) =>
-            CardBloc()
+            create: (context) => CardBloc()
               ..add(
                 const GetCardEvent(
                   name: "name",
-                  expireDate: "expireDate",
-                  cardNumber: "cardNumber",
+                  expireDate: "10/24",
+                  cardNumber: "8600897876545634",
                 ),
               ),
           ),
-          BlocProvider(create: (context) =>
-              LocationBloc(repository: RepositoryProvider.of<LocationRepository>(context)),)
+          BlocProvider(
+            create: (context) => LocationBloc(
+                repository: RepositoryProvider.of<LocationRepository>(context)),
+          )
         ],
         child: ScreenUtilInit(
           designSize: const Size(294, 636),
