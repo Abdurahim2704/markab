@@ -22,14 +22,14 @@ class AppRouter {
     routes: [
       GoRoute(
         name: Routes.home,
-        path: "/",
+        path: "/home",
         pageBuilder: (context, state) {
           return const MaterialPage(child: MainHomeScreen());
         },
       ),
       GoRoute(
           name: Routes.phoneNumberPage,
-          path: "/phoneNumberPage",
+          path: "/",
           pageBuilder: (_, __) => const MaterialPage(child: PhoneNumberPage())),
       GoRoute(
         name: Routes.otpPage,
