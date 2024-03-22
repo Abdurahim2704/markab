@@ -58,7 +58,7 @@ class _PhoneNumberPageState extends State<PhoneNumberPage> {
                 height: 18.h,
               ),
               TextField(
-                cursorHeight: 25,
+                cursorHeight: 25.h,
                 controller: controller,
                 inputFormatters: [maskTextInputFormatter],
                 textAlignVertical: TextAlignVertical.bottom,
